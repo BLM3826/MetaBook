@@ -39,11 +39,13 @@ app.get('/api/', (req, res) => {
 app.post('/api/login', async (req, res) => {
   const { username, password } = req.body;
   const account = `${username},${password}`;
-  const valid = account in accounts;
+  const valid = accounts.includes(account);
   if (!valid) {
-    throw httpErrors(401, 'Invalid username or password');
+    res.status(401).send(`${account} is not ${accounts[0]}`);
+    throw httpErrors(401, `${account} is not ${accounts[0]}`);
+  } else {
+    res.cookie({ username }).sendStatus(200);
   }
-  res.cookie({ username }).sendStatus(200);
 });
 
 app.post('/api/logout', (req, res) => {

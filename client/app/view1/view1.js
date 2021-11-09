@@ -16,11 +16,10 @@ angular
 
   .controller("View1Ctrl", [function () {}]);
 
-const loginbtn = document.getElementById("loginbtn");
+// eslint-disable-next-line no-unused-vars
+function login() {
 
-//form event listener
-loginbtn.addEventListener("submit", (e) => {
-    e.preventDefault();
+    console.log("login button clicked");
 
     fetch("/api/login", {
         method: "POST",
@@ -32,11 +31,10 @@ loginbtn.addEventListener("submit", (e) => {
             // email: this.state.email,
             password: document.getElementById("password").value,
         }),
-    })
-        .then((res) => {
+    }).then((res) => {
             if (res.status === 200) {
                 //redirect to view2.html
-                window.location.href = "/view2";
+                window.location.href = "#!/view2";
             } else {
                 const error = new Error(res.error);
                 throw error;
@@ -46,4 +44,4 @@ loginbtn.addEventListener("submit", (e) => {
             console.error(err);
             alert("Error logging in please try again");
         });
-});
+}
