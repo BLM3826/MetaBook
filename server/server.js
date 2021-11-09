@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-plusplus */
 const cookieParser = require('cookie-parser');
 const express = require('express');
@@ -42,7 +43,7 @@ app.post('/api/login', async (req, res) => {
   const valid = accounts.includes(account);
   if (!valid) {
     res.status(401).send(`${account} is not ${accounts[0]}`);
-    throw httpErrors(401, `${account} is not ${accounts[0]}`);
+    // throw httpErrors(401, `${account} is not ${accounts[0]}`);
   } else {
     res.cookie({ username }).sendStatus(200);
   }
@@ -56,11 +57,14 @@ app.post('/api/register', (req, res) => {
   const { username, password } = req.body;
   for (let i = 0; i < accounts.length; ++i) {
     if (accounts[i].includes(username)) {
-      throw httpErrors(409, 'Username already exists');
+      console.log(`${username} already exists`);
+      res.status(401).send(`${username} already exists`);
+      throw httpErrors(401, `${username} already exists`);
     }
   }
   const account = `${username},${password}`;
   accounts.push(account);
+  console.log(accounts);
   res.cookie({ username }).sendStatus(200);
 });
 
