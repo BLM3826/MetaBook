@@ -1,15 +1,12 @@
 /* eslint-disable linebreak-style */
-const { Router } = require('express');
+const express = require('express');
 
-const router = Router();
+const router = express.Router();
 
-/* GET users listing. */
-router.get('/', (req, res, next) => {
-  res.send('respond with a blogpost');
-});
+// router.get('/api/blogpost', (req, res) => { });
+// router.get('/api/blogpost/:id', (req, res) => {});
+// router.post('/api/blogpost', (req, res) => {});
+// router.put('/api/blogpost/:id', (req, res) => {});
+// router.delete('/api/blogpost/:id', (req, res) => {});
 
-// router.get('/', (req, res, next) => {
-//   res.send('you are in post1');
-// });
-
-module.exports = Router;
+module.exports = router;

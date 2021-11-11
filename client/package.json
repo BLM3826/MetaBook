@@ -12,18 +12,30 @@
     "html5-boilerplate": "0.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
     "angular-mocks": "^1.7.5",
+    "babel-loader": "^8.2.3",
+    "babel-plugin-angularjs-annotate": "^0.10.0",
     "cpx": "^1.5.0",
+    "css-loader": "^6.5.1",
     "eslint": "^8.2.0",
+    "file-loader": "^6.2.0",
+    "html-loader": "^3.0.1",
     "http-server": "^0.11.1",
     "jasmine-core": "^3.3.0",
     "karma": "^3.1.1",
     "karma-chrome-launcher": "^2.2.0",
     "karma-firefox-launcher": "^1.1.0",
     "karma-jasmine": "^1.1.2",
-    "protractor": "^5.4.1"
+    "protractor": "^5.4.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.63.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.4.0"
   },
   "scripts": {
+    "build": "webpack --mode production",
     "postinstall": "npm run copy-libs",
     "update-deps": "npm update",
     "postupdate-deps": "npm run copy-libs",
