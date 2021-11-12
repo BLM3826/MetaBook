@@ -1,7 +1,7 @@
-logs/*
-!.gitkeep
+dist/
 node_modules/
-app/lib/
-tmp
-.DS_Store
-.idea
+*.log
+.idea/
+*.iml
+package-lock.json
+.vscode

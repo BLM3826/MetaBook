@@ -1,28 +1,25 @@
 module.exports = {
   output: {
-    publicPath: "/dist/",
+    publicPath: '/dist/',
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        loader: "eslint-loader",
-        enforce: "pre",
+        loader: 'eslint-loader',
+        enforce: 'pre',
         exclude: /node_modules/,
         options: {
           emitWarning: true,
         },
       },
-      { test: /\.js$/, loader: "babel-loader", exclude: /node_modules/ },
-      { test: /\.html$/, loader: "html-loader" },
-      {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
-      },
+      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.html$/, loader: 'html-loader' },
+      { test: /\.css/, loader: 'style-loader!css-loader' },
       {
         test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
-        loader: "file-loader",
-        options: { name: "[name].[ext]?[hash]" },
+        loader: 'file-loader',
+        options: { name: '[name].[ext]?[hash]' },
       },
     ],
   },
@@ -30,9 +27,9 @@ module.exports = {
     historyApiFallback: true,
     overlay: true,
     proxy: {
-      "/api": {
+      '/api': {
         bypass: (req, res) => {
-          if (req.url.includes("user")) res.send({ name: "toto" });
+          if (req.url.includes('user')) res.send({ name: 'Bill' });
         },
       },
     },

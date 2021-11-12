@@ -1,55 +1,76 @@
 {
-  "name": "angular-seed",
-  "private": true,
-  "version": "0.0.0",
-  "description": "A starter project for AngularJS",
-  "repository": "https://github.com/angular/angular-seed",
+  "name": "angularjs-webpack-simple",
+  "description": "A simple boilerplate for AngularJS using webpack and components",
+  "version": "0.0.12",
+  "author": "Arnaud Barré <arnaud.barre72@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open --hot",
+    "build": "webpack --mode production",
+    "test": "jest",
+    "e2e": "npm run build && jest -c e2e.config.js --detectOpenHandles",
+    "e2e:debug": "debug=true npm run e2e",
+    "lint": "eslint ./src *.config.js --fix"
+  },
   "dependencies": {
-    "angular": "^1.7.5",
-    "angular-loader": "^1.7.5",
-    "angular-route": "^1.7.5",
-    "html5-boilerplate": "0.0.1"
+    "angular": "^1.7.4",
+    "angular-route": "^1.7.4"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env"
+      ]
+    ],
+    "plugins": [
+      "angularjs-annotate"
+    ]
   },
   "devDependencies": {
-    "@babel/core": "^7.16.0",
-    "@babel/preset-env": "^7.16.0",
-    "angular-mocks": "^1.7.5",
-    "babel-loader": "^8.2.3",
-    "babel-plugin-angularjs-annotate": "^0.10.0",
-    "cpx": "^1.5.0",
-    "css-loader": "^6.5.1",
-    "eslint": "^8.2.0",
-    "file-loader": "^6.2.0",
-    "html-loader": "^3.0.1",
-    "http-server": "^0.11.1",
-    "jasmine-core": "^3.3.0",
-    "karma": "^3.1.1",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-firefox-launcher": "^1.1.0",
-    "karma-jasmine": "^1.1.2",
-    "protractor": "^5.4.1",
-    "style-loader": "^3.3.1",
-    "webpack": "^5.63.0",
-    "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.4.0"
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.2",
+    "babel-plugin-angularjs-annotate": "^0.9.0",
+    "css-loader": "^1.0.0",
+    "eslint": "^5.6.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-loader": "^2.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^21.22.0",
+    "file-loader": "^2.0.0",
+    "html-loader": "^0.5.5",
+    "jest": "^23.6.0",
+    "jest-puppeteer-preset": "^3.3.1",
+    "puppeteer": "^1.8.0",
+    "serve": "^10.0.1",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.19.0",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.8"
   },
-  "scripts": {
-    "build": "webpack --mode production",
-    "postinstall": "npm run copy-libs",
-    "update-deps": "npm update",
-    "postupdate-deps": "npm run copy-libs",
-    "copy-libs": "cpx \"node_modules/{angular,angular-*,html5-boilerplate/dist}/**/*\" app/lib -C",
-    "prestart": "npm install",
-    "start": "http-server -a localhost -p 8000 -c-1 ./app",
-    "pretest": "npm install",
-    "test": "karma start karma.conf.js",
-    "test-single-run": "npm test -- --single-run",
-    "preupdate-webdriver": "npm install",
-    "//": "Do not install the Firefox driver to work around https://github.com/angular/webdriver-manager/issues/303.",
-    "update-webdriver": "webdriver-manager update --gecko false",
-    "preprotractor": "npm run update-webdriver",
-    "protractor": "protractor e2e-tests/protractor.conf.js",
-    "update-index-async": "node --eval \"var fs=require('fs'),indexFile='app/index-async.html',loaderFile='app/lib/angular-loader/angular-loader.min.js',loaderText=fs.readFileSync(loaderFile,'utf-8').split(/sourceMappingURL=angular-loader.min.js.map/).join('sourceMappingURL=lib/angular-loader/angular-loader.min.js.map'),indexText=fs.readFileSync(indexFile,'utf-8').split(/\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/).join('//@@NG_LOADER_START@@\\n'+loaderText+'    //@@NG_LOADER_END@@');fs.writeFileSync(indexFile,indexText);\""
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|svg|css|html)$": "<rootDir>//__mocks__/asset.js"
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "airbnb-base",
+      "plugin:jest/recommended"
+    ],
+    "plugins": [
+      "jest"
+    ],
+    "env": {
+      "browser": true
+    },
+    "globals": {
+      "page": true
+    }
+  },
+  "engines": {
+    "node": ">=8.0.0"
   }
 }
