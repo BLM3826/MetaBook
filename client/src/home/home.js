@@ -1,9 +1,12 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-console */
 import template from './home.html';
 
 export class Home {
   /* @ngInject */
   constructor() {
     this.message = 'Hi from constructor';
+    this.check = 'login succeded!!!';
   }
 
   changeMessage() {
@@ -29,7 +32,8 @@ export class Home {
       .then((res) => {
         if (res.status === 200) {
           // redirect to page2.html
-          window.location.href = '/page2';
+        //   window.location.href = '/page2';
+          console.log(this.check);
         } else {
           const error = new Error(res.error);
           throw error;
@@ -57,8 +61,9 @@ export class Home {
     })
       .then((res) => {
         if (res.status === 200) {
-          // redirect to view2.html
-          window.location.href = '#!/view2';
+          // redirect to page2.html
+        //   window.location.href = '/page2';
+          console.log(this.check);
         } else {
           const error = new Error(res.error);
           throw error;

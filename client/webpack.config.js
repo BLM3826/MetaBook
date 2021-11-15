@@ -15,7 +15,7 @@ module.exports = {
       },
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.html$/, loader: 'html-loader' },
-      { test: /\.css/, loader: 'style-loader!css-loader' },
+      { test: /\.css/, use: ['style-loader', 'css-loader'] },
       {
         test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
         loader: 'file-loader',
@@ -27,11 +27,7 @@ module.exports = {
     historyApiFallback: true,
     overlay: true,
     proxy: {
-      '/api': {
-        bypass: (req, res) => {
-          if (req.url.includes('user')) res.send({ name: 'Bill' });
-        },
-      },
+      '/api': 'http://localhost:3000',
     },
   },
   performance: {
