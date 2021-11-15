@@ -7,9 +7,9 @@ export class App {
 
   $onInit() {
     this.$rootScope.headerText = 'Welcome in AngularJS component app !';
-    this.service.getUser().then(({ data }) => {
-      this.$rootScope.user = data;
-    });
+    // this.service.getUser().then(({ data }) => {
+    //   this.$rootScope.user = data;
+    // });
   }
 }
 

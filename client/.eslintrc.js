@@ -7,4 +7,7 @@ module.exports = {
   globals: {
     page: true,
   },
+  rules: {
+    "comma-dangle": 'off'
+  },
 };

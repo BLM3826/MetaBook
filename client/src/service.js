@@ -4,7 +4,7 @@ export default class Service {
     this.$http = $http;
   }
 
-  getUser() {
-    return this.$http.get('api/user');
-  }
+//   getUser() {
+//     return this.$http.get('api/');
+//   }
 }
