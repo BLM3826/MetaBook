@@ -6,7 +6,7 @@ export class Home {
   /* @ngInject */
   constructor() {
     this.message = 'Hi from constructor';
-    this.check = 'login succeded!!!';
+    this.check = ' succeded!!!';
   }
 
   changeMessage() {
@@ -31,9 +31,9 @@ export class Home {
     })
       .then((res) => {
         if (res.status === 200) {
-          // redirect to page2.html
-        //   window.location.href = '/page2';
-          console.log(this.check);
+        // redirect to page2.html
+          //   window.location.href = '/page2';
+          console.log(`login${this.check}`);
         } else {
           const error = new Error(res.error);
           throw error;
@@ -44,6 +44,31 @@ export class Home {
         alert('Error logging in please try again');
       });
   }
+
+
+  // $resource('/api/login', {}, {
+  //     login: {
+  //         method: 'POST',
+  //         headers: {
+  //             'Content-Type': 'application/json',
+  //         },
+  //         isArray: false,
+  //         params: {
+  //             username: '@username',
+  //             password: '@password',
+  //         },
+  //     },
+  // }).login({
+  //     username: document.getElementById('lgnusername').value,
+  //     password: document.getElementById('lgnpassword').value,
+  // }).$promise.then((response) => {
+  //     console.log(response);
+  //     console.log(`login${this.check}`);
+  // }).catch((err) => {
+  //     console.error(err);
+  //     alert('Error logging in please try again');
+  // });
+
 
   register() {
     console.log('register button clicked');
@@ -62,8 +87,8 @@ export class Home {
       .then((res) => {
         if (res.status === 200) {
           // redirect to page2.html
-        //   window.location.href = '/page2';
-          console.log(this.check);
+          //   window.location.href = '/page2';
+          console.log(`register${this.check}`);
         } else {
           const error = new Error(res.error);
           throw error;
@@ -74,6 +99,30 @@ export class Home {
         alert('Error registering please try again');
       });
   }
+
+  // $resource('/api/register', {}, {
+  //     register: {
+  //         method: 'POST',
+  //         headers: {
+  //             'Content-Type': 'application/json',
+  //         },
+  //         isArray: false,
+  //         params: {
+  //             username: '@username',
+  //             password: '@password',
+  //         },
+  //     },
+  // }).register({
+  //     username: document.getElementById('rgsusername').value,
+  //     password: document.getElementById('rgspassword').value,
+  // }).$promise.then((response) => {
+  //     console.log(response);
+  //     console.log(`register${this.check}`);
+  // }).catch((err) => {
+  //     console.error(err);
+  //     alert('Error registering please try again');
+  // });
+
 
   /** ***************************end-my-functions*************************** */
 }
