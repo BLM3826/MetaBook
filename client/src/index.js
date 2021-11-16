@@ -5,7 +5,7 @@ import service from './service';
 import app from './app';
 import home from './home/home';
 import header from './header/header';
-import page2 from './page2/page2';
+import page2 from './login/page2';
 
 const mainModule = angular.module('mainModule', [ngRoute])
   .service('service', service)

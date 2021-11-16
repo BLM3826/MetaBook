@@ -1,0 +1,20 @@
+<div class="jumbotron">
+  <h2 class="text-danger">Welcome to page 2</h2>
+  <button class="btn btn-danger" ng-click="$ctrl.changeHeader()">Change header !</button>
+
+  <h3>Login:</h3>
+<form class="login-form" ng-submit="$ctrl.login()">
+    <!-- input username and password -->
+    <input id="lgnusername" type="text" name="username" placeholder="username">
+    <input id="lgnpassword" type="password" name="password" placeholder="password">
+    <input id="loginbtn" type="submit" value="Login">
+</form>
+
+<h3>Register:</h3>
+<form class="register-form" ng-submit="$ctrl.register()">
+    <!-- input username and password -->
+    <input id="rgsusername" type="text" name="username" placeholder="username">
+    <input id="rgspassword" type="password" name="password" placeholder="password">
+    <input id="registerbtn" type="submit" value="Register">
+</form>
+</div>

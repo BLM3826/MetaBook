@@ -6,7 +6,7 @@ const router = express.Router();
 
 const posts = JSON.parse(fs.readFileSync('./server/data/blogposts.json', 'utf8'));
 
-router.get('/api/blogpost', (req, res) => {
+router.get('/', (req, res) => {
   res.json(posts);
 });
 // router.get('/api/blogpost/:id', (req, res) => {});
