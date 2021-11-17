@@ -1,9 +1,9 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
 
-import template from './page2.html';
+import template from './login.html';
 
-export class Page2 {
+export class Login {
   /* @ngInject */
   constructor($rootScope) {
     this.$rootScope = $rootScope;
@@ -32,8 +32,8 @@ export class Page2 {
     })
       .then((res) => {
         if (res.status === 200) {
-          // redirect to page2.html
-          //   window.location.href = '/page2';
+          // redirect to Login.html
+          //   window.location.href = '/Login';
           console.log(`login${this.check}`);
         } else {
           const error = new Error(res.error);
@@ -85,8 +85,8 @@ export class Page2 {
     })
       .then((res) => {
         if (res.status === 200) {
-          // redirect to page2.html
-          //   window.location.href = '/page2';
+          // redirect to Login.html
+          //   window.location.href = '/Login';
           console.log(`register${this.check}`);
         } else {
           const error = new Error(res.error);
@@ -125,4 +125,4 @@ export class Page2 {
   /** ***************************end-my-functions*************************** */
 }
 
-export default { controller: Page2, template };
+export default { controller: Login, template };

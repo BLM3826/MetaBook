@@ -5,19 +5,25 @@ import service from './service';
 import app from './app';
 import home from './home/home';
 import header from './header/header';
-import page2 from './login/page2';
+import login from './login/login';
+import blogpostComp from './blogpost/blogpostComp';
 
-const mainModule = angular.module('mainModule', [ngRoute])
+const mainModule = angular
+  .module('mainModule', [ngRoute])
   .service('service', service)
   .component('appRoot', app)
   .component('appHome', home)
   .component('appHeader', header)
-  .component('appPage2', page2)
+  .component('appLogin', login)
+  .component('appBlogpost', blogpostComp)
   .config(($locationProvider, $routeProvider) => {
     $locationProvider.html5Mode(true);
     $routeProvider
-      .when('/', { template: '<app-home message-from-parent="\'Hi from router 🤗\'"></app-home>' })
-      .when('/page2', { template: '<app-page-2></app-page-2>' })
+      .when('/', {
+        template:
+          "<app-home message-from-parent=\"'Hi from router 🤗'\"></app-home>",
+      })
+      .when('/login', { template: '<app-login></app-login>' })
       .otherwise('/');
   });
 

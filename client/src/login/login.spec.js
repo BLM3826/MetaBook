@@ -1,14 +1,14 @@
-import { Page2 } from './page2';
+import { Login } from './login';
 
-let page2;
+let login;
 let rootScopeSpy;
 
 beforeEach(() => {
   rootScopeSpy = jest.fn();
-  page2 = new Page2(rootScopeSpy);
+  login = new Login(rootScopeSpy);
 });
 
 it('should set headerText of rootScope on changeHeader', () => {
-  page2.changeHeader();
+  login.changeHeader();
   expect(rootScopeSpy).toHaveProperty('headerText');
 });
