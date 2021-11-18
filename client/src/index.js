@@ -6,7 +6,7 @@ import app from './app';
 import home from './home/home';
 import header from './header/header';
 import login from './login/login';
-import blogpostComp from './blogpost/blogpostComp';
+import blogpost from './blogpost/blogpost';
 
 const mainModule = angular
   .module('mainModule', [ngRoute])
@@ -15,7 +15,7 @@ const mainModule = angular
   .component('appHome', home)
   .component('appHeader', header)
   .component('appLogin', login)
-  .component('appBlogpost', blogpostComp)
+  .component('appBlogpost', blogpost)
   .config(($locationProvider, $routeProvider) => {
     $locationProvider.html5Mode(true);
     $routeProvider
