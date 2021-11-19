@@ -1,4 +1,5 @@
 module.exports = {
+  watch: true,
   output: {
     publicPath: '/dist/',
   },

@@ -5,7 +5,7 @@ export class homeController {
   constructor($log) {
     // binding are not yet available here
     this.$log = $log; // init on constructor imported services to have access from 'this'
-    this.isLoggedIn = false; // must be in $rootScope
+    this.user = null;
   }
 
   //   $onChanges() {
