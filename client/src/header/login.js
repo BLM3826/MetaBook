@@ -35,6 +35,7 @@ export class Login {
           // redirect to Login.html
           //   window.location.href = '/Login';
           console.log(`login${this.check}`);
+          this.$rootScope.isLoggedIn = true;
         } else {
           const error = new Error(res.error);
           throw error;

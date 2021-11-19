@@ -3,7 +3,6 @@ import template from './blogpost.html';
 export class BlogpostComp {
   /* @ngInject */
   constructor() {
-    this.message = 'Hi from constructor';
     this.title = '';
     this.content = '';
     this.user = '';
@@ -11,7 +10,9 @@ export class BlogpostComp {
 }
 
 const bindings = {
-//   messageFromParent: '<',
+  blogpost: '<',
+  onDelete: '&',
+  onEdit: '&',
 };
 
 export default { controller: BlogpostComp, template, bindings };

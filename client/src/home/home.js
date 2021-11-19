@@ -1,5 +1,6 @@
 import template from './home.html';
 
+
 export class homeController {
   constructor($log) {
     // binding are not yet available here

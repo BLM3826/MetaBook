@@ -1,4 +1,4 @@
-import template from './blogPostEdit.html';
+import template from './blogpostEdit.html';
 
 export class blogPostEditController {
   //   constructor() {
