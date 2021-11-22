@@ -34,8 +34,10 @@ const posts = [
   },
 ];
 export class blogListController {
-  constructor() {
+  constructor($mdDialog, $log) {
     this.posts = posts;
+    this.$mdDialog = $mdDialog;
+    this.$log = $log;
   }
   //   $onInit() {
   //     // binding available here
@@ -58,12 +60,15 @@ export class blogListController {
         bindToController: true,
         template: postTemplate,
         clickOutsideToClose: true,
+        hasBackdrop: true
       })
       .catch((err) => {
         this.$log.error(err);
       });
   }
 }
+
+blogListController.$inject = ['$mdDialog', '$log'];
 
 const bindings = {
   post: '<',

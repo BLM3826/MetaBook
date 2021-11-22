@@ -1,20 +1,18 @@
-<div class="blogpostPreview">
-    <div class="blogpostPreview__header">
-        <h1 class="blogpostPreview__title">
-            This is a blogpost title
+<div class="blogpostView">
+    <div class="blogpostView__header">
+        <h1 class="blogpostView__title">
             {{$ctrl.post.title}}
         </h1>
     </div>
     <hr>
-    <div class="blogpostPreview__content">
-        <p>This is a blogpost content. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        {{$ctrl.post.content}}</p>
+    <div class="blogpostView__content">
+        <p>{{$ctrl.post.content}}</p>
     </div>
     <div class="btns">
         <button class="closebtn btn btn-danger">CLOSE</button>
         <button class="editbtn btn btn-primary">EDIT</button>
     </div>
-    <div class="blogpostPreview__user">
-        Posted by <span class="usertag">Me{{ $ctrl.post.name }}</span>
+    <div class="blogpostView__user">
+        Posted by <span class="usertag">{{ $ctrl.post.name }}</span>
     </div>
 </div>

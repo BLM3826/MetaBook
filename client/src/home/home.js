@@ -1,5 +1,5 @@
 import template from './home.html';
-
+import './home.css';
 
 export class homeController {
   constructor($log) {

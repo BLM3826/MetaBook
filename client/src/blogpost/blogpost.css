@@ -1,3 +1,11 @@
+/* blogpost {
+    border: solid 1px #000;
+    border-radius: 10px;
+    background-color: white;
+    padding: 2% 2% 1% 2%;
+    width: 40vw;
+}
+
 .blogpostPreview__title{
     text-align: center;
 }
@@ -15,4 +23,4 @@
 .btns{
     text-align: right;
     margin-bottom: -30px;
-}
+} */

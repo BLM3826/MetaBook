@@ -11,9 +11,10 @@ import blogpostedit from './blogpostEdit/blogpostEdit';
 import bloglist from './blogpostList/blogList';
 import blogpostPreview from './blogpostList/blogpostPreview/blogpostPreview';
 import blogfooter from './footer/footer';
+import 'angular-material';
 
 const mainModule = angular
-  .module('mainModule', [ngRoute])
+  .module('mainModule', [ngRoute, 'ngMaterial'])
   .service('service', service)
   .component('appRoot', app)
   .component('appHome', home)
