@@ -2,17 +2,19 @@
     <div class="blogpostPreview__header">
         <h1 class="blogpostPreview__title">
             This is a blogpost title
-            <!-- {{blogpost.title}} -->
+            {{$ctrl.post.title}}
         </h1>
     </div>
+    <hr>
     <div class="blogpostPreview__content">
-        This is a blogpost content. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        <!-- {{blogpost.content}} -->
+        <p>This is a blogpost content. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        {{$ctrl.post.content}}</p>
+    </div>
+    <div class="btns">
+        <button class="closebtn btn btn-danger">CLOSE</button>
+        <button class="editbtn btn btn-primary">EDIT</button>
     </div>
     <div class="blogpostPreview__user">
-        Posted by {{ $user->username }}
+        Posted by <span class="usertag">Me{{ $ctrl.post.name }}</span>
     </div>
-    <button class="closebtn btn-primary">CLOSE</button>
-    <button class="editbtn btn-danger">EDIT</button>
-
 </div>

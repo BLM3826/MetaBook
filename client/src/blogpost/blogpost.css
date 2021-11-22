@@ -1,0 +1,18 @@
+.blogpostPreview__title{
+    text-align: center;
+}
+
+.blogpostPreview__content{
+    font-size: x-large;
+    margin-bottom: 100px;
+}
+
+.usertag{
+    font-size: larger;
+    font-weight: bold;
+}
+
+.btns{
+    text-align: right;
+    margin-bottom: -40px;
+}

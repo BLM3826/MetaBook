@@ -1,18 +1,15 @@
 import template from './blogpost.html';
+import './blogpost.css';
 
 export class BlogpostComp {
   /* @ngInject */
-  constructor() {
-    this.title = '';
-    this.content = '';
-    this.user = '';
-  }
+
 }
 
 const bindings = {
-  blogpost: '<',
-  onDelete: '&',
-  onEdit: '&',
+  post: '<',
+  //   onDelete: '&',
+  //   onEdit: '&',
 };
 
 export default { controller: BlogpostComp, template, bindings };
