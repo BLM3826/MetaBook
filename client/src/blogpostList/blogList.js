@@ -59,6 +59,7 @@ export class blogListController {
         locals,
         bindToController: true,
         template: postTemplate,
+        // parent: angular.element(document.body),
         clickOutsideToClose: true,
         hasBackdrop: true
       })
@@ -71,7 +72,7 @@ export class blogListController {
 blogListController.$inject = ['$mdDialog', '$log'];
 
 const bindings = {
-  post: '<',
+//   post: '<',
 };
 
 export default { controller: blogListController, template, bindings };

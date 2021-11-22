@@ -22,7 +22,7 @@ blogpost-preview:hover {
     padding: 8vh 10vw;
 }
 
-/* .addpostbtn{
+.addpostbtn{
     border: solid 3px #007bff;
     position: fixed;
     border-radius: 100%;
@@ -39,4 +39,4 @@ blogpost-preview:hover {
 .addpostbtn:hover{
     cursor: pointer;
     box-shadow: 0px 2px 5px black;
-} */
+}
