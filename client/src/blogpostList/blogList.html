@@ -1,8 +1,6 @@
 <!-- list of blogPostPreviews -->
 <div class="blogListDiv">
-    <blogpost-preview post="post" ng-repeat="post in $ctrl.posts"></blogpost-preview>
-</div>
-<div class="blogpostView">
-    <blogpost post="post"></blogpost>
+    <blogpost-preview post="post" ng-repeat="post in $ctrl.posts" ng-click="$ctrl.openPost(post)"></blogpost-preview>
 </div>
 <button class="addpostbtn btn-default btn-circle btn-lg"><h2>+</h2></button>
+

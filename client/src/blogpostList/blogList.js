@@ -1,4 +1,6 @@
+/* eslint-disable no-console */
 import template from './blogList.html';
+import postTemplate from '../blogpost/blogpostTemplate.html';
 import './blogList.css';
 
 const posts = [
@@ -45,6 +47,22 @@ export class blogListController {
   //   }
   //   $onDestroy() {
   //   }
+
+  openPost(post) {
+    const locals = { post };
+    this.$mdDialog
+      .show({
+        controller: () => {},
+        controllerAs: 'vm',
+        locals,
+        bindToController: true,
+        template: postTemplate,
+        clickOutsideToClose: true,
+      })
+      .catch((err) => {
+        this.$log.error(err);
+      });
+  }
 }
 
 const bindings = {
