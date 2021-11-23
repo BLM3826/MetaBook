@@ -3,10 +3,8 @@ import ngRoute from 'angular-route';
 import 'angular-material';
 import 'angular-material/angular-material.css';
 import service from './service';
-import app from './app';
 import home from './home/home';
 import header from './header/header';
-// import login from './login/login';
 import blogpost from './blogpost/blogpost';
 import blogpostedit from './blogpostEdit/blogpostEdit';
 import bloglist from './blogpostList/blogList';
@@ -16,10 +14,8 @@ import blogfooter from './footer/footer';
 const mainModule = angular
   .module('mainModule', [ngRoute, 'ngMaterial'])
   .service('service', service)
-  .component('appRoot', app)
   .component('appHome', home)
   .component('blogHeader', header)
-  //   .component('appLogin', login)
   .component('blogpost', blogpost)
   .component('blogpostEdit', blogpostedit)
   .component('blogList', bloglist)
@@ -30,10 +26,10 @@ const mainModule = angular
     $routeProvider
       .when('/', {
         template:
-          "<app-home message-from-parent=\"'Hi from router 🤗'\"></app-home>",
+          '<blog-list user="$.ctrl.user"></blog-list>',
       })
       //   .when('/login', { template: '<app-login></app-login>' })
-      .when('/edit', { template: '<app-blogpost-edit></app-blogpost-edit>' })
+    //   .when('/edit', { template: '<app-blogpost-edit></app-blogpost-edit>' })
       .otherwise('/');
   });
 

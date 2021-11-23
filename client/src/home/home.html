@@ -1,5 +1,3 @@
-<div class = 'homeDiv'>
-    <blog-header user="$ctrl.user" on-user-change="$ctrl.userChanged(user)"></blog-header>
-    <blog-list user="$.ctrl.user"></blog-list>
-    <blog-footer></blog-footer>
-</div>
+<blog-header user="$ctrl.user" on-user-change="$ctrl.userChanged(user)"></blog-header>
+<ng-view></ng-view>
+<blog-footer></blog-footer>
