@@ -1,4 +1,5 @@
-<div class="blogpostPreview">
+<div class="blogpostPreview" md-whiteframe="{{height}}" layout="column" layout-align="space-around start"
+      ng-init="height = 3" ng-mouseenter="height = 6" ng-mouseleave="height = 3">
     <div class="blogpostPreview__user">
         Posted by {{$ctrl.post.name}} 
     </div><br>

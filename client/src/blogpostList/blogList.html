@@ -1,5 +1,5 @@
-<div class="blogListDiv">
-    <blogpost-preview post="post" ng-repeat="post in $ctrl.posts" ng-click="$ctrl.openPost(post)"></blogpost-preview>
+<div class="blogListDiv" layout="row" layout-align="space-between center" layout-wrap="">
+    <blogpost-preview post="post" flex="30" ng-repeat="post in $ctrl.posts" ng-click="$ctrl.openPost(post)"></blogpost-preview>
 </div>
-<button class="addpostbtn"><h2>+</h2></button>
+<md-button class="md-fab" aria-label="Use Android">+</md-button>
 
