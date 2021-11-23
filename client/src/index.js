@@ -1,6 +1,7 @@
 import angular from 'angular';
 import ngRoute from 'angular-route';
-
+import 'angular-material';
+import 'angular-material/angular-material.css';
 import service from './service';
 import app from './app';
 import home from './home/home';
@@ -11,7 +12,6 @@ import blogpostedit from './blogpostEdit/blogpostEdit';
 import bloglist from './blogpostList/blogList';
 import blogpostPreview from './blogpostList/blogpostPreview/blogpostPreview';
 import blogfooter from './footer/footer';
-import 'angular-material';
 
 const mainModule = angular
   .module('mainModule', [ngRoute, 'ngMaterial'])
