@@ -3,7 +3,13 @@ import './blogpost.css';
 
 export class BlogpostComp {
   /* @ngInject */
+  constructor($mdDialog) {
+    this.$mdDialog = $mdDialog;
+  }
 
+  closePost() {
+    this.$mdDialog.hide();
+  }
 }
 
 const bindings = {

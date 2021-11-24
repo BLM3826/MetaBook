@@ -1,9 +1,11 @@
-<div class="blogpostPreview" md-whiteframe="{{height}}" layout="column" layout-align="space-around start"
-      ng-init="height = 3" ng-mouseenter="height = 6" ng-mouseleave="height = 3">
-    <div class="blogpostPreview__user">
-        Posted by {{$ctrl.post.name}} 
-    </div><br>
-    <h3 class="blogpostPreview__title">
-        {{$ctrl.post.title}}
-    </h3>
-</div>
+<md-card class="blogpostPreview" md-whiteframe="{{height}}" layout="column" layout-align="space-around start"
+    ng-init="height = 3" ng-mouseenter="height = 6" ng-mouseleave="height = 3">
+    <md-card-title class="blogpostPreview__title">
+        <md-card-title-text>
+            <span class="blogpostPreview__user">
+                Posted by {{$ctrl.post.name}}
+            </span><br>
+            <span class="md-headline">{{$ctrl.post.title}}</span>
+        </md-card-title-text>
+    </md-card-title>
+</md-card>

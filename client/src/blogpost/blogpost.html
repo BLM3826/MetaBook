@@ -1,18 +1,20 @@
-<div class="blogpostView">
+<div class="blogpostView md-dialog-content" layout="column" layout-align="space-between">
     <div class="blogpostView__header">
         <h1 class="blogpostView__title">
             {{$ctrl.post.title}}
         </h1>
+        <hr>
     </div>
-    <hr>
     <div class="blogpostView__content">
         <p>{{$ctrl.post.content}}</p>
     </div>
-    <div class="btns">
-        <md-button class="closebtn md-raised md-accent">CLOSE</md-button>
-        <md-button class="editbtn md-raised md-primary">EDIT</md-button>
-    </div>
-    <div class="blogpostView__user">
-        Posted by <span class="usertag">{{ $ctrl.post.name }}</span>
+    <div class="blogpostView__bottom" layout="row" layout-align="space-between center">
+        <span class="blogpostView__user">
+            Posted by <span class="usertag">{{ $ctrl.post.name }}</span>
+        </span>
+        <span class="btns">
+            <md-button class="closebtn md-raised md-accent" ng-click="$ctrl.closePost()">CLOSE</md-button>
+            <md-button class="editbtn md-raised md-primary">EDIT</md-button>
+        </span>
     </div>
 </div>

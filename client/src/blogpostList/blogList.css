@@ -38,3 +38,7 @@ blogpost-preview:hover {
     cursor: pointer;
     box-shadow: 0px 2px 5px black;
 } */
+
+.blogpostPreview {
+    border-radius: 5px;
+}

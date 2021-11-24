@@ -50,7 +50,7 @@ export class blogListController {
   //   $onDestroy() {
   //   }
 
-  openPost(post) {
+  openPost(post, ev) {
     const locals = { post };
     this.$mdDialog
       .show({
@@ -59,9 +59,9 @@ export class blogListController {
         locals,
         bindToController: true,
         template: postTemplate,
-        // parent: angular.element(document.body),
         clickOutsideToClose: true,
-        hasBackdrop: true
+        hasBackdrop: true,
+        targetEvent: ev
       })
       .catch((err) => {
         this.$log.error(err);
