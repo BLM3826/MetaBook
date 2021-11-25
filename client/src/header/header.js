@@ -10,7 +10,6 @@ export class headerController {
   }
 
   openConnect(ev) {
-    console.log('openConnectDialog');
     this.$mdDialog
       .show({
         controller: () => {},

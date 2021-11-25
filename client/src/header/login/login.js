@@ -3,18 +3,22 @@
 
 import template from './login.html';
 
-export class Login {
+
+const isLogin = true;
+export class LoginController {
   /* @ngInject */
   constructor($rootScope) {
     this.$rootScope = $rootScope;
     this.check = ' succeded!!!';
-  }
-
-  changeHeader() {
-    this.$rootScope.headerText = 'AngularJS is awesome !';
+    this.isLogin = isLogin;
   }
 
   /** ***************************my-functions*************************** */
+
+  flipLogin() {
+    console.log(this.isLogin);
+    this.isLogin = !this.isLogin;
+  }
 
   login() {
     console.log('login button clicked');
@@ -126,4 +130,8 @@ export class Login {
   /** ***************************end-my-functions*************************** */
 }
 
-export default { controller: Login, template };
+const bindings = {
+  isLogin: '<',
+};
+
+export default { controller: LoginController, template, bindings };

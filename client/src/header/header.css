@@ -1,6 +1,32 @@
-/* .user-connected {
-  margin-left: 50px
+/* .registerDiv, .signinbtn{
+    visibility: hidden;
+    opacity: 0;
+    transition: 500ms;
 }
-.btns {
-    text-align: right;
+
+.loginDiv, .signupbtn{
+    visibility: visible;
+    opacity: 1;
+    transition: 1000ms;
+}
+
+hr{
+    position: absolute;
+}
+
+.loginDialog:hover .registerDiv, .loginDialog:hover .signinbtn{
+    visibility: visible;
+    opacity: 1;
+    transition: 500ms;
+}
+
+.loginDialog:hover .loginDiv, .loginDialog:hover .signupbtn{
+    visibility: hidden;
+    opacity: 0;
+    transition: 500ms;
+}
+
+.loginDialog:hover hr{
+    position: relative;
+    transition: 500ms;
 } */
