@@ -32,6 +32,7 @@
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.0",
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^27.3.1",
     "babel-loader": "^8.0.2",

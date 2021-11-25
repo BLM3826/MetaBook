@@ -29,8 +29,19 @@ const mainModule = angular
           '<blog-list flex layout="column" user="$.ctrl.user"></blog-list>',
       })
       //   .when('/login', { template: '<app-login></app-login>' })
-    //   .when('/edit', { template: '<app-blogpost-edit></app-blogpost-edit>' })
+      //   .when('/edit', { template: '<app-blogpost-edit></app-blogpost-edit>' })
       .otherwise('/');
+  })
+  .config(($mdThemingProvider) => {
+    $mdThemingProvider
+      .theme('default')
+      .primaryPalette('blue')
+      .accentPalette('orange')
+      .warnPalette('red')
+      .backgroundPalette('grey');
+  })
+  .config(($mdIconProvider) => {
+    $mdIconProvider.defaultFontSet('FontAwesome').fontSet('fa', 'FontAwesome');
   });
 
 angular.bootstrap(document, [mainModule.name], { strictDi: true });
