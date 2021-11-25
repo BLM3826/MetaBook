@@ -26,7 +26,7 @@ const mainModule = angular
     $routeProvider
       .when('/', {
         template:
-          '<blog-list user="$.ctrl.user"></blog-list>',
+          '<blog-list flex layout="column" user="$.ctrl.user"></blog-list>',
       })
       //   .when('/login', { template: '<app-login></app-login>' })
     //   .when('/edit', { template: '<app-blogpost-edit></app-blogpost-edit>' })
