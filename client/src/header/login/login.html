@@ -1,19 +1,25 @@
-<div class="loginDiv">
-<h3>Login:</h3>
-<form class="login-form" ng-submit="$ctrl.login()">
-    <!-- input username and password -->
-    <input id="lgnusername" type="text" name="username" placeholder="username">
-    <input id="lgnpassword" type="password" name="password" placeholder="password">
-    <input id="loginbtn" type="submit" value="Login">
-</form>
-</div>
-
-<div class="registerDiv">
-<h3>Register:</h3>
-<form class="register-form" ng-submit="$ctrl.register()">
-    <!-- input username and password -->
-    <input id="rgsusername" type="text" name="username" placeholder="username">
-    <input id="rgspassword" type="password" name="password" placeholder="password">
-    <input id="registerbtn" type="submit" value="Register">
-</form>
+<div class="loginDiv md-dialog-container">
+    <md-dialog aria-label="Login Dialog">
+        <md-dialog-content class="md-dialog-content">
+            <div class="registerDiv">
+                <h3>Login:</h3>
+                <form class="login-form" layout="column" layout-align="space-between center" ng-submit="$ctrl.login()">
+                    <!-- input username and password -->
+                    <input id="lgnusername" type="text" name="username" placeholder="username">
+                    <input id="lgnpassword" type="password" name="password" placeholder="password">
+                    <input id="loginbtn" type="submit" value="Login">
+                </form>
+            </div>
+            <div class="registerDiv">
+                <h3>Register:</h3>
+                <form class="register-form" layout="column" layout-align="space-between center"
+                    ng-submit="$ctrl.register()">
+                    <!-- input username and password -->
+                    <input id="rgsusername" type="text" name="username" placeholder="username">
+                    <input id="rgspassword" type="password" name="password" placeholder="password">
+                    <input id="registerbtn" type="submit" value="Register">
+                </form>
+            </div>
+        </md-dialog-content>
+    </md-dialog>
 </div>
