@@ -13,6 +13,7 @@
     "lint": "eslint ./src *.config.js --fix"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "angular": "^1.7.4",
     "angular-animate": "^1.8.2",
     "angular-aria": "^1.8.2",
@@ -32,7 +33,6 @@
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.0",
-    "@fortawesome/fontawesome-free": "^5.15.4",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^27.3.1",
     "babel-loader": "^8.0.2",
