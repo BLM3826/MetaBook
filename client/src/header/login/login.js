@@ -8,7 +8,7 @@ export class LoginController {
   constructor($rootScope) {
     this.$rootScope = $rootScope;
     this.check = ' succeded!!!';
-    this.isLogin = false;
+    this.isLogin = true;
   }
 
   /** ***************************my-functions*************************** */
@@ -17,6 +17,9 @@ export class LoginController {
     console.log(this.isLogin);
     this.isLogin = !this.isLogin;
   }
+
+  // we will have only one function for login and register
+  // that will be called from the login.html and will be toggled by isLogin
 
   login() {
     console.log('login button clicked');
@@ -128,8 +131,4 @@ export class LoginController {
   /** ***************************end-my-functions*************************** */
 }
 
-const bindings = {
-  isLogin: '<',
-};
-
-export default { controller: LoginController, template, bindings };
+export default { controller: LoginController, template };

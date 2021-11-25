@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import template from './header.html';
-import connectTemplate from './login/loginTemplate.html';
+import loginTemplate from './login/loginTemplate.html';
 import './header.css';
 
 export class headerController {
@@ -15,7 +15,7 @@ export class headerController {
         controller: () => {},
         controllerAs: 'vm',
         bindToController: true,
-        template: connectTemplate,
+        template: loginTemplate,
         targetEvent: ev,
         clickOutsideToClose: true,
         hasBackdrop: true,
