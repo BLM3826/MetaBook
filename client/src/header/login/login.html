@@ -1,8 +1,7 @@
 <div class="md-dialog-container">
     <md-dialog aria-label="Login Dialog">
         <md-dialog-content class="md-dialog-content loginDialog" layout="row" >
-            <!-- <button class="signinbtn">Sign In</button> -->
-            <div class="loginDiv" ng-show="$ctrl.isLogin">
+            <div class="loginDiv" ng-if="$ctrl.isLogin">
                 <h3>Login:</h3>
                 <ng-form class="login-form" layout="column" layout-align="space-between center" ng-submit="$ctrl.login()">
                     <!-- input username and password -->
@@ -19,7 +18,7 @@
                 </ng-form>
             </div>
             <hr flex-offset="5">   
-            <div class="registerDiv" flex-offset="5" ng-hide="$ctrl.isLogin">
+            <div class="registerDiv" flex-offset="5" ng-if="!$ctrl.isLogin">
                 <h3>Register:</h3>
                 <ng-form class="register-form" layout="column" layout-align="space-between center"
                     ng-submit="$ctrl.register()">
@@ -36,7 +35,6 @@
                     <md-button class="md-warn" ng-click="$ctrl.flipLogin()">sign in</md-button>
                 </ng-form>
             </div>
-            <!-- <button class="signupbtn">Sign Up</button> -->
         </md-dialog-content>
     </md-dialog>
 </div>

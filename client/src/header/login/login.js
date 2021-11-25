@@ -3,14 +3,12 @@
 
 import template from './login.html';
 
-
-const isLogin = true;
 export class LoginController {
   /* @ngInject */
   constructor($rootScope) {
     this.$rootScope = $rootScope;
     this.check = ' succeded!!!';
-    this.isLogin = isLogin;
+    this.isLogin = true;
   }
 
   /** ***************************my-functions*************************** */
