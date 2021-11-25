@@ -1,40 +1,33 @@
-<div class="md-dialog-container">
-    <md-dialog aria-label="Login Dialog">
-        <md-dialog-content class="md-dialog-content loginDialog" layout="row" >
-            <div class="loginDiv" ng-if="$ctrl.isLogin">
-                <h3>Login:</h3>
-                <ng-form class="login-form" layout="column" layout-align="space-between center" ng-submit="$ctrl.login()">
-                    <!-- input username and password -->
-                    <md-input-container class="md-block">
-                        <label>Username</label>
-                        <input ng-model="$ctrl.user.username" type="text" required id="lgnusername" placeholder="username">
-                    </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Password</label>
-                        <input ng-model="$ctrl.user.password" type="password" required id="lgnpassword" placeholder="password">
-                    </md-input-container>
-                    <md-button class="md-raised" type="submit">Log in</md-button>
-                    <md-button class="md-warn" ng-click="$ctrl.flipLogin()">sign up</md-button>
-                </ng-form>
-            </div>
-            <hr flex-offset="5">   
-            <div class="registerDiv" flex-offset="5" ng-if="!$ctrl.isLogin">
-                <h3>Register:</h3>
-                <ng-form class="register-form" layout="column" layout-align="space-between center"
-                    ng-submit="$ctrl.register()">
-                    <!-- input username and password -->
-                    <md-input-container class="md-block">
-                        <label>Username</label>
-                        <input ng-model="$ctrl.user.username" type="text" required id="regusername" placeholder="username">
-                    </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Password</label>
-                        <input ng-model="$ctrl.user.password" type="password" required id="regpassword" placeholder="password">
-                    </md-input-container>
-                    <md-button class="md-raised" type="submit">Register</md-button>
-                    <md-button class="md-warn" ng-click="$ctrl.flipLogin()">sign in</md-button>
-                </ng-form>
-            </div>
-        </md-dialog-content>
-    </md-dialog>
+<div class="loginDiv" ng-if="$ctrl.isLogin">
+    <h3>Login:</h3>
+    <ng-form class="login-form" layout="column" layout-align="space-between center" ng-submit="$ctrl.login()">
+        <!-- input username and password -->
+        <md-input-container class="md-block">
+            <label>Username</label>
+            <input ng-model="$ctrl.user.username" type="text" required id="lgnusername" placeholder="username">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Password</label>
+            <input ng-model="$ctrl.user.password" type="password" required id="lgnpassword" placeholder="password">
+        </md-input-container>
+        <md-button class="md-raised" type="submit">Log in</md-button>
+        <md-button class="md-warn" ng-click="$ctrl.flipLogin()">sign up</md-button>
+    </ng-form>
+</div>
+<hr flex-offset="5">
+<div class="registerDiv" flex-offset="5" ng-if="!$ctrl.isLogin">
+    <h3>Register:</h3>
+    <ng-form class="register-form" layout="column" layout-align="space-between center" ng-submit="$ctrl.register()">
+        <!-- input username and password -->
+        <md-input-container class="md-block">
+            <label>Username</label>
+            <input ng-model="$ctrl.user.username" type="text" required id="regusername" placeholder="username">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Password</label>
+            <input ng-model="$ctrl.user.password" type="password" required id="regpassword" placeholder="password">
+        </md-input-container>
+        <md-button class="md-raised" type="submit">Register</md-button>
+        <md-button class="md-warn" ng-click="$ctrl.flipLogin()">sign in</md-button>
+    </ng-form>
 </div>

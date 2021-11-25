@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import template from './header.html';
-import connectTemplate from './login/login.html';
+import connectTemplate from './login/loginTemplate.html';
 import './header.css';
 
 export class headerController {

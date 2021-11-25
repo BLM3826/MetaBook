@@ -8,7 +8,7 @@ export class LoginController {
   constructor($rootScope) {
     this.$rootScope = $rootScope;
     this.check = ' succeded!!!';
-    this.isLogin = true;
+    this.isLogin = false;
   }
 
   /** ***************************my-functions*************************** */

@@ -10,6 +10,7 @@ import '@fortawesome/fontawesome-free/css/v4-shims.css';
 import service from './service';
 import home from './home/home';
 import header from './header/header';
+import login from './header/login/login';
 import blogpost from './blogpost/blogpost';
 import blogpostedit from './blogpostEdit/blogpostEdit';
 import bloglist from './blogpostList/blogList';
@@ -21,6 +22,7 @@ const mainModule = angular
   .service('service', service)
   .component('appHome', home)
   .component('blogHeader', header)
+  .component('blogLogin', login)
   .component('blogpost', blogpost)
   .component('blogpostEdit', blogpostedit)
   .component('blogList', bloglist)
