@@ -4,11 +4,11 @@
         <!-- input username and password -->
         <md-input-container class="md-block">
             <label>Username</label>
-            <input ng-model="user.username" type="text" placeholder="username" required>
+            <input ng-model="$ctrl.user.username" type="text" placeholder="username" required>
         </md-input-container>
         <md-input-container class="md-block">
             <label>Password</label>
-            <input ng-model="user.password" type="password" placeholder="password" required>
+            <input ng-model="$ctrl.user.password" type="password" placeholder="password" required>
         </md-input-container>
         <md-button class="md-raised" type="submit">{{$ctrl.submitName}}</md-button>
         <md-button class="md-warn" ng-click="$ctrl.flipLogin()">{{$ctrl.toggleName}}</md-button>

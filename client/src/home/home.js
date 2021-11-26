@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import template from './home.html';
 import './home.css';
 
@@ -6,31 +7,32 @@ export class homeController {
     // binding are not yet available here
     this.$log = $log; // init on constructor imported services to have access from 'this'
     this.user = null;
+    console.log(this.user);
   }
 
   //   $onChanges() {
-  //     // runs before onInit and every time bindings change
+  //     console.log(this.user);
   //   }
 
   //   $onInit() {
-  //     // binding available here
+  //     console.log(this.user);
   //   }
 
   //   $postLink() {
-  //     // runs after onInit
+  //     console.log(this.user);
   //   }
 
   //   $onDestroy() {
   //     // runs on component destroy
   //   }
 
-  myFunction() {
-    this.$log.info('Hi!!');
-  }
+  //   myFunction() {
+  //     this.$log.info('Hi!!');
+  //   }
 
-  mySecondFunction() {
-    this.myFunction();
-  }
+  //   mySecondFunction() {
+  //     this.myFunction();
+  //   }
 }
 homeController.$inject = ['$log'];
 export default { controller: homeController, template };

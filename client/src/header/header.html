@@ -4,7 +4,7 @@
     <div class="btns" layout="row" layout-align="end center">
         <md-button class="md-raised" ng-click="$ctrl.openLogin($event)">Log in</md-button>
         <!-- <md-button class="md-raised" ng-click="$ctrl.openConnect($event)">Sign up</md-button> -->
-        <md-button class="md-raised">My posts</md-button>
-        <md-button class="md-raised md-warn">Log out</md-button>
+        <md-button class="md-raised" ng-if="$ctrl.user">My posts</md-button>
+        <md-button class="md-raised md-warn" ng-if="$ctrl.user">Log out</md-button>
     </div>
 </md-toolbar>

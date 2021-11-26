@@ -5,8 +5,7 @@ import template from './login.html';
 
 export class LoginController {
   /* @ngInject */
-  constructor($scope, $resource) {
-    this.$scope = $scope;
+  constructor($resource) {
     this.$resource = $resource;
     this.check = ' succeded!!!';
     this.isLogin = true;
@@ -32,9 +31,10 @@ export class LoginController {
 
     if (this.isLogin) {
       console.log('login');
-      console.log(this.user); // it gives undefined
-      if (this.$scope.user.username === 'admin' && this.$scope.user.password === 'admin') {
+      console.log(this.user);
+      if (this.user.username === 'admin' && this.user.password === 'admin') {
         console.log(`admin${this.check}`);
+        // here we set the home user to the user object
       } else {
         this.$resource(
           '/api/login',
@@ -54,8 +54,8 @@ export class LoginController {
           }
         )
           .login({
-            username: this.$scope.user.username,
-            password: this.$scope.user.password,
+            username: this.user.username,
+            password: this.user.password,
           })
           .$promise.then((response) => {
             console.log(response);
@@ -87,8 +87,8 @@ export class LoginController {
         }
       )
         .register({
-          username: this.$scope.user.username,
-          password: this.$scope.user.password,
+          username: this.user.username,
+          password: this.user.password,
         })
         .$promise.then((response) => {
           console.log(response);
@@ -103,7 +103,7 @@ export class LoginController {
   /** ***************************end-my-functions*************************** */
 }
 
-LoginController.$inject = ['$scope', '$resource'];
+LoginController.$inject = ['$resource'];
 
 export default { controller: LoginController, template };
 
