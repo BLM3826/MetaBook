@@ -5,8 +5,8 @@ import template from './login.html';
 
 export class LoginController {
   /* @ngInject */
-  constructor($rootScope, $resource) {
-    this.$rootScope = $rootScope;
+  constructor($scope, $resource) {
+    this.$scope = $scope;
     this.$resource = $resource;
     this.check = ' succeded!!!';
     this.isLogin = true;
@@ -32,31 +32,39 @@ export class LoginController {
 
     if (this.isLogin) {
       console.log('login');
-      if (document.getElementById('lgnusername').value === 'admin' && document.getElementById('lgnpassword').value === 'admin') {
-        this.$rootScope.isLoggedIn = true;
+      console.log(this.user); // it gives undefined
+      if (this.$scope.user.username === 'admin' && this.$scope.user.password === 'admin') {
+        console.log(`admin${this.check}`);
       } else {
-        this.$resource('/api/login', {}, {
-          login: {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
+        this.$resource(
+          '/api/login',
+          {},
+          {
+            login: {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              isArray: false,
+              params: {
+                username: '@username',
+                password: '@password',
+              },
             },
-            isArray: false,
-            params: {
-              username: '@username',
-              password: '@password',
-            },
-          },
-        }).login({
-          username: document.getElementById('lgnusername').value,
-          password: document.getElementById('lgnpassword').value,
-        }).$promise.then((response) => {
-          console.log(response);
-          console.log(`login${this.check}`);
-        }).catch((err) => {
-          console.error(err);
-          alert('Error logging in please try again');
-        });
+          }
+        )
+          .login({
+            username: this.$scope.user.username,
+            password: this.$scope.user.password,
+          })
+          .$promise.then((response) => {
+            console.log(response);
+            console.log(`login${this.check}`);
+          })
+          .catch((err) => {
+            console.error(err);
+            alert('Error logging in please try again');
+          });
       }
     } else {
       console.log('register');
@@ -79,8 +87,8 @@ export class LoginController {
         }
       )
         .register({
-          username: document.getElementById('lgnusername').value,
-          password: document.getElementById('lgnpassword').value,
+          username: this.$scope.user.username,
+          password: this.$scope.user.password,
         })
         .$promise.then((response) => {
           console.log(response);
@@ -95,7 +103,7 @@ export class LoginController {
   /** ***************************end-my-functions*************************** */
 }
 
-LoginController.$inject = ['$rootScope', '$resource'];
+LoginController.$inject = ['$scope', '$resource'];
 
 export default { controller: LoginController, template };
 
