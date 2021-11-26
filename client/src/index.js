@@ -1,5 +1,6 @@
 import angular from 'angular';
 import ngRoute from 'angular-route';
+import ngResource from 'angular-resource';
 import 'angular-material';
 import 'angular-material/angular-material.css';
 import '@fortawesome/fontawesome-free/css/regular.css';
@@ -18,7 +19,7 @@ import blogpostPreview from './blogpostList/blogpostPreview/blogpostPreview';
 import blogfooter from './footer/footer';
 
 const mainModule = angular
-  .module('mainModule', [ngRoute, 'ngMaterial'])
+  .module('mainModule', [ngRoute, ngResource, 'ngMaterial'])
   .service('service', service)
   .component('appHome', home)
   .component('blogHeader', header)

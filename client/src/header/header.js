@@ -11,11 +11,11 @@ export class headerController {
   }
 
 
-  openConnect(ev) {
-    const position = this.$mdPanel.newPanelPosition()
-      .absolute()
-      .right()
-      .top();
+  openLogin(ev) {
+    // const position = this.$mdPanel.newPanelPosition()
+    //   .absolute()
+    //   .right()
+    //   .top();
     this.$mdDialog
       .show({
         controller: () => {},
@@ -23,7 +23,7 @@ export class headerController {
         bindToController: true,
         template: loginTemplate,
         targetEvent: ev,
-        position,
+        // position,
         clickOutsideToClose: true,
         hasBackdrop: true,
       })

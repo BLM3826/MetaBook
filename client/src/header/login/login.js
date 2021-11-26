@@ -5,10 +5,13 @@ import template from './login.html';
 
 export class LoginController {
   /* @ngInject */
-  constructor($rootScope) {
+  constructor($rootScope, $resource) {
     this.$rootScope = $rootScope;
+    this.$resource = $resource;
     this.check = ' succeded!!!';
     this.isLogin = true;
+    this.submitName = 'Login';
+    this.toggleName = 'Sign up';
   }
 
   /** ***************************my-functions*************************** */
@@ -16,6 +19,9 @@ export class LoginController {
   flipLogin() {
     console.log(this.isLogin);
     this.isLogin = !this.isLogin;
+
+    this.submitName = this.isLogin ? 'Login' : 'Register';
+    this.toggleName = this.isLogin ? 'Sign up' : 'Sign in';
   }
 
   // we will have only one function for login and register
@@ -29,7 +35,7 @@ export class LoginController {
       if (document.getElementById('lgnusername').value === 'admin' && document.getElementById('lgnpassword').value === 'admin') {
         this.$rootScope.isLoggedIn = true;
       } else {
-        $resource('/api/login', {}, {
+        this.$resource('/api/login', {}, {
           login: {
             method: 'POST',
             headers: {
@@ -55,32 +61,41 @@ export class LoginController {
     } else {
       console.log('register');
 
-      $resource('/api/register', {}, {
-        register: {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
+      this.$resource(
+        '/api/register',
+        {},
+        {
+          register: {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            isArray: false,
+            params: {
+              username: '@username',
+              password: '@password',
+            },
           },
-          isArray: false,
-          params: {
-            username: '@username',
-            password: '@password',
-          },
-        },
-      }).register({
-        username: document.getElementById('rgsusername').value,
-        password: document.getElementById('rgspassword').value,
-      }).$promise.then((response) => {
-        console.log(response);
-        console.log(`register${this.check}`);
-      }).catch((err) => {
-        console.error(err);
-        alert('Error registering please try again');
-      });
+        }
+      )
+        .register({
+          username: document.getElementById('lgnusername').value,
+          password: document.getElementById('lgnpassword').value,
+        })
+        .$promise.then((response) => {
+          console.log(response);
+          console.log(`register${this.check}`);
+        })
+        .catch((err) => {
+          console.error(err);
+          alert('Error registering please try again');
+        });
     }
   }
   /** ***************************end-my-functions*************************** */
 }
+
+LoginController.$inject = ['$rootScope', '$resource'];
 
 export default { controller: LoginController, template };
 
