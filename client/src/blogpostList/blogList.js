@@ -59,8 +59,8 @@ export class blogListController {
         locals,
         bindToController: true,
         template: postTemplate,
-        clickOutsideToClose: true,
         hasBackdrop: true,
+        clickOutsideToClose: true,
         targetEvent: ev
       })
       .catch((err) => {

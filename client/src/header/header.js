@@ -4,12 +4,18 @@ import loginTemplate from './login/loginTemplate.html';
 import './header.css';
 
 export class headerController {
-  constructor($mdDialog, $log) {
+  constructor($mdDialog, $log, $mdPanel) {
     this.$mdDialog = $mdDialog;
     this.$log = $log;
+    this.$mdPanel = $mdPanel;
   }
 
+
   openConnect(ev) {
+    const position = this.$mdPanel.newPanelPosition()
+      .absolute()
+      .right()
+      .top();
     this.$mdDialog
       .show({
         controller: () => {},
@@ -17,6 +23,7 @@ export class headerController {
         bindToController: true,
         template: loginTemplate,
         targetEvent: ev,
+        position,
         clickOutsideToClose: true,
         hasBackdrop: true,
       })
@@ -26,7 +33,7 @@ export class headerController {
   }
 }
 
-headerController.$inject = ['$mdDialog', '$log'];
+headerController.$inject = ['$mdDialog', '$log', '$mdPanel'];
 
 const bindings = {
   text: '<',
