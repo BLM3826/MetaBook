@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 app.use('/api', usersRouter);
 
 // api/blogpost path prefix
-app.use('/api/blogpost', postsRouter);
+app.use('/api/blogposts', postsRouter);
 
 app.listen(port, () => {
   console.log(`Server app listening at http://localhost:${port}`);
