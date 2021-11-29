@@ -6,15 +6,18 @@
     width: 40vw;
 }
 */
-.blogpostView__title{
-    text-align: center;
-}
-/*
-.blogpostPreview__content{
-    font-size: x-large;
-    margin-bottom: 100px;
+.blogpostDialog {
+  max-width: 60%;
 }
 
+.blogpostView__title {
+  text-align: center;
+}
+
+.blogpostView__content {
+  font-size: xxx-large;
+}
+/*
 .usertag{
     font-size: larger;
     font-weight: bold;
