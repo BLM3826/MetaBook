@@ -34,20 +34,30 @@ const posts = [
   },
 ];
 export class blogListController {
-  constructor($mdDialog, $log) {
+  constructor($mdDialog, $log, $resource) {
     this.posts = posts;
     this.$mdDialog = $mdDialog;
     this.$log = $log;
+    this.$resource = $resource;
   }
+
   //   $onInit() {
-  //     // binding available here
+  //     this.getBlogPosts();
   //   }
   //   $postLink() {
   //     // runs after onInit
   //   }
-  //   $onChanges(changesObj) {
+  //   $onChanges() {
+  //     console.log(this.post);
+  //     console.log(this.user);
   //   }
   //   $onDestroy() {
+  //   }
+
+  //   getBlogPosts() {
+  //     this.$resource('/api/blogposts').get().$promise.then((res) => {
+  //       this.posts = res;
+  //     });
   //   }
 
   openPost(post, ev) {
@@ -73,6 +83,7 @@ blogListController.$inject = ['$mdDialog', '$log'];
 
 const bindings = {
 //   post: '<',
+  user: '<'
 };
 
 export default { controller: blogListController, template, bindings };

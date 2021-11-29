@@ -14,7 +14,7 @@
         </span>
         <span class="btns">
             <md-button class="closebtn md-raised md-warn" ng-click="$ctrl.closePost()">CLOSE</md-button>
-            <md-button class="editbtn md-raised md-primary">EDIT</md-button>
+            <md-button class="editbtn md-raised md-primary" ng-if="$ctrl.user.username === $ctrl.post.name">EDIT</md-button>
         </span>
     </div>
 </div>

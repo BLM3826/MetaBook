@@ -1,10 +1,9 @@
 <md-toolbar class="header-stuff" layout="column" layout-align="space-between">
     <h1 class="welcome-text" flex-offset="5">Welcome to MetaBook</h1>
-    <h3 class="user-connected" flex-offset="5">Connected as Bill</h3>
+    <h3 class="user-connected" layout="row" layout-align="end center" ng-if="$ctrl.user">Connected as {{$ctrl.user.username}}</h3>
     <div class="btns" layout="row" layout-align="end center">
-        <md-button class="md-raised" ng-click="$ctrl.openLogin($event)">Log in</md-button>
-        <!-- <md-button class="md-raised" ng-click="$ctrl.openConnect($event)">Sign up</md-button> -->
+        <md-button class="md-raised" ng-if="!$ctrl.user" ng-click="$ctrl.openLogin($event)">Log in</md-button>
         <md-button class="md-raised" ng-if="$ctrl.user">My posts</md-button>
-        <md-button class="md-raised md-warn" ng-if="$ctrl.user">Log out</md-button>
+        <md-button class="md-raised md-warn" ng-if="$ctrl.user" ng-click="$ctrl.logout()">Log out</md-button>
     </div>
 </md-toolbar>

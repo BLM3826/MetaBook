@@ -1,10 +1,23 @@
+/* eslint-disable no-console */
 import template from './blogpost.html';
 import './blogpost.css';
 
 export class BlogpostComp {
   /* @ngInject */
+
   constructor($mdDialog) {
     this.$mdDialog = $mdDialog;
+  }
+
+  $onChanges() {
+    console.log(this.post);
+    console.log(this.user);
+  }
+
+  onInit() {
+    // this.myPost = (this.user.username === this.post.name);
+    console.log(this.post);
+    console.log(this.user);
   }
 
   closePost() {
@@ -14,8 +27,7 @@ export class BlogpostComp {
 
 const bindings = {
   post: '<',
-  //   onDelete: '&',
-  //   onEdit: '&',
+  user: '<'
 };
 
 export default { controller: BlogpostComp, template, bindings };

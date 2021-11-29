@@ -6,7 +6,7 @@
   "main": "server.js",
   "scripts": {
     "eslint": "./node_modules/eslint/bin/eslint.js --max-warnings 0 --ext .js .",
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "test": "./node_modules/mocha/bin/mocha --recursive"
   },
   "dependencies": {

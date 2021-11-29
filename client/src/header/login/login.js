@@ -5,8 +5,9 @@ import template from './login.html';
 
 export class LoginController {
   /* @ngInject */
-  constructor($resource) {
+  constructor($resource, $mdDialog) {
     this.$resource = $resource;
+    this.$mdDialog = $mdDialog;
     this.check = ' succeded!!!';
     this.isLogin = true;
     this.submitName = 'Login';
@@ -34,7 +35,8 @@ export class LoginController {
       console.log(this.user);
       if (this.user.username === 'admin' && this.user.password === 'admin') {
         console.log(`admin${this.check}`);
-        // here we set the home user to the user object
+        console.log(this.$mdDialog);
+        this.$mdDialog.hide(this.user);
       } else {
         this.$resource(
           '/api/login',
@@ -60,6 +62,7 @@ export class LoginController {
           .$promise.then((response) => {
             console.log(response);
             console.log(`login${this.check}`);
+            this.$mdDialog.hide(this.user);
           })
           .catch((err) => {
             console.error(err);
@@ -93,68 +96,21 @@ export class LoginController {
         .$promise.then((response) => {
           console.log(response);
           console.log(`register${this.check}`);
+          this.$mdDialog.hide(this.user);
         })
         .catch((err) => {
           console.error(err);
-          alert('Error registering please try again');
+          if (err.status === 401) {
+            alert(`User ${err.data}`);
+          } else {
+            alert('Error registering please try again');
+          }
         });
     }
   }
   /** ***************************end-my-functions*************************** */
 }
 
-LoginController.$inject = ['$resource'];
+LoginController.$inject = ['$resource', '$mdDialog'];
 
 export default { controller: LoginController, template };
-
-
-// fetch('/api/login', {
-//   method: 'POST',
-//   headers: {
-//     'Content-Type': 'application/json',
-//   },
-//   body: JSON.stringify({
-//     username: document.getElementById('lgnusername').value,
-//     password: document.getElementById('lgnpassword').value,
-//   }),
-// })
-//   .then((res) => {
-//     if (res.status === 200) {
-//       // redirect to Login.html
-//       //   window.location.href = '/Login';
-//       console.log(`login${this.check}`);
-//       this.$rootScope.isLoggedIn = true;
-//     } else {
-//       const error = new Error(res.error);
-//       throw error;
-//     }
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//     alert('Error logging in please try again');
-//   });
-
-// fetch('/api/register', {
-//   method: 'POST',
-//   headers: {
-//     'Content-Type': 'application/json',
-//   },
-//   body: JSON.stringify({
-//     username: document.getElementById('lgnusername').value,
-//     password: document.getElementById('lgnpassword').value,
-//   }),
-// })
-//   .then((res) => {
-//     if (res.status === 200) {
-//       // redirect to Login.html
-//       //   window.location.href = '/Login';
-//       console.log(`register${this.check}`);
-//     } else {
-//       const error = new Error(res.error);
-//       throw error;
-//     }
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//     alert('Error registering please try again');
-//   });

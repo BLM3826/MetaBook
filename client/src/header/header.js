@@ -16,9 +16,10 @@ export class headerController {
     //   .absolute()
     //   .right()
     //   .top();
+
     this.$mdDialog
       .show({
-        controller: () => {},
+        controller: () => { },
         controllerAs: 'vm',
         bindToController: true,
         template: loginTemplate,
@@ -26,10 +27,17 @@ export class headerController {
         // position,
         clickOutsideToClose: true,
         hasBackdrop: true,
+      }).then((user) => {
+        this.onUserChange({ user });
       })
       .catch((err) => {
         this.$log.error(err);
       });
+    console.log(this.$mdDialog);
+  }
+
+  logout() {
+    this.onUserChange({ user: null });
   }
 }
 
@@ -38,6 +46,7 @@ headerController.$inject = ['$mdDialog', '$log', '$mdPanel'];
 const bindings = {
   text: '<',
   user: '<',
+  onUserChange: '&',
 };
 
 export default { controller: headerController, template, bindings };

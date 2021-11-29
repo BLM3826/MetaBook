@@ -3,6 +3,7 @@ import '../blogList.css';
 
 const bindings = {
   post: '<',
+  user: '<',
 };
 
 
