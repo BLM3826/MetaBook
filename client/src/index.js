@@ -37,7 +37,9 @@ const mainModule = angular
         template:
           '<blog-list flex layout="column" user="$ctrl.user"></blog-list>',
       })
-      .when('/edit', { template: '<blogpost-edit></blogpost-edit>' })
+      .when('/edit', {
+        template: '<blogpost-edit flex layout="column" layout-align="space-between"></blogpost-edit>',
+      })
       .otherwise('/');
   })
   .config(($mdThemingProvider) => {

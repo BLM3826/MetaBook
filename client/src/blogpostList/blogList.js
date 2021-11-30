@@ -4,11 +4,12 @@ import postTemplate from '../blogpost/blogpostTemplate.html';
 import './blogList.css';
 
 export class blogListController {
-  constructor($mdDialog, $log, $resource) {
+  constructor($mdDialog, $log, $resource, $location) {
     this.posts = [];
     this.$mdDialog = $mdDialog;
     this.$log = $log;
     this.$resource = $resource;
+    this.$location = $location;
   }
 
   $onInit() {
@@ -36,11 +37,9 @@ export class blogListController {
           },
           isArray: true,
         },
-      },
+      }
     )
-      .blogposts(
-        { posts: this.posts },
-      )
+      .blogposts({ posts: this.posts })
       .$promise.then((res) => {
         console.log(res);
         this.posts = res;
@@ -64,9 +63,13 @@ export class blogListController {
         this.$log.error(err);
       });
   }
+
+  editPost() {
+    this.$location.path('/edit');
+  }
 }
 
-blogListController.$inject = ['$mdDialog', '$log', '$resource'];
+blogListController.$inject = ['$mdDialog', '$log', '$resource', '$location'];
 
 const bindings = {
   //   post: '<',

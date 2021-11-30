@@ -1,15 +1,21 @@
-<md-content layout="row" layout-align="center">
-    <div class="md-content-container">
-        <form>
-            <div class="form-group">
+<md-content layout="column" layout-align="space-between">
+    <div>
+        <h1 flex-offset="5" layout="column">Make a Metapost</h1>
+    </div>
+    <div class="md-content-container" layout="row" layout-align="space-around stretch">
+        <form layout="column" layout-align="space-around center" ng-submit="$ctrl.updatePost()">
+            <md-input-container class="md-block">
                 <label for="title">Title</label>
-                <input type="text" class="form-control" id="title" placeholder="Title">
-            </div>
-            <div class="form-group">
+                <input type="text" class="form-control" id="title">
+            </md-input-container>
+            <md-input-container class="md-block">
                 <label for="content">Content</label>
                 <textarea class="form-control" id="content" rows="3"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            </md-input-container>
+            <md-button class="md-raised" type="submit">update</md-button>
         </form>
+    </div>
+    <div layout="row" layout-align="end">
+        <md-button class="md-raised md-warn">cancel</md-button>
     </div>
 </md-content>
