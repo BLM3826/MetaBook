@@ -8,6 +8,7 @@ module.exports = {
     page: true,
   },
   rules: {
-    "comma-dangle": 'off'
+    "comma-dangle": "off",
+    "linebreak-style": 0,
   },
 };

@@ -48,7 +48,7 @@ export class blogListController {
   }
 
   openPost(post, ev) {
-    const locals = { post };
+    const locals = { post, user: this.user };
     this.$mdDialog
       .show({
         controller: () => {},

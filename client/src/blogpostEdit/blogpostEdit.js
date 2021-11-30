@@ -15,4 +15,9 @@ export class blogPostEditController {
   //   }
 }
 
-export default { controller: blogPostEditController, template };
+const bindings = {
+  post: '<',
+  user: '<',
+};
+
+export default { controller: blogPostEditController, template, bindings };

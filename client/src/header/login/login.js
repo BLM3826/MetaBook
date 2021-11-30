@@ -5,9 +5,10 @@ import template from './login.html';
 
 export class LoginController {
   /* @ngInject */
-  constructor($resource, $mdDialog) {
+  constructor($resource, $mdDialog, $cookies) {
     this.$resource = $resource;
     this.$mdDialog = $mdDialog;
+    this.$cookies = $cookies;
     this.check = ' succeded!!!';
     this.isLogin = true;
     this.submitName = 'Login';
@@ -35,7 +36,7 @@ export class LoginController {
       console.log(this.user);
       if (this.user.username === 'admin' && this.user.password === 'admin') {
         console.log(`admin${this.check}`);
-        console.log(this.$mdDialog);
+        this.$cookies.putObject('user', this.user);
         this.$mdDialog.hide(this.user);
       } else {
         this.$resource(
@@ -62,6 +63,8 @@ export class LoginController {
           .$promise.then((response) => {
             console.log(response);
             console.log(`login${this.check}`);
+            // store the user in cookie as json
+            this.$cookies.putObject('user', this.user);
             this.$mdDialog.hide(this.user);
           })
           .catch((err) => {
@@ -96,6 +99,7 @@ export class LoginController {
         .$promise.then((response) => {
           console.log(response);
           console.log(`register${this.check}`);
+          this.$cookies.putObject('user', this.user);
           this.$mdDialog.hide(this.user);
         })
         .catch((err) => {
@@ -111,6 +115,6 @@ export class LoginController {
   /** ***************************end-my-functions*************************** */
 }
 
-LoginController.$inject = ['$resource', '$mdDialog'];
+LoginController.$inject = ['$resource', '$mdDialog', '$cookies'];
 
 export default { controller: LoginController, template };

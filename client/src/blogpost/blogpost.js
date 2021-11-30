@@ -5,8 +5,9 @@ import './blogpost.css';
 export class BlogpostComp {
   /* @ngInject */
 
-  constructor($mdDialog) {
+  constructor($mdDialog, $location) {
     this.$mdDialog = $mdDialog;
+    this.$location = $location;
   }
 
   $onChanges() {
@@ -18,6 +19,10 @@ export class BlogpostComp {
     // this.myPost = (this.user.username === this.post.name);
     console.log(this.post);
     console.log(this.user);
+  }
+
+  editPost() {
+    this.$location.path('/edit');
   }
 
   closePost() {

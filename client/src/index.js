@@ -1,6 +1,7 @@
 import angular from 'angular';
 import ngRoute from 'angular-route';
 import ngResource from 'angular-resource';
+import 'angular-cookies';
 import 'angular-material';
 import 'angular-material/angular-material.css';
 import '@fortawesome/fontawesome-free/css/regular.css';
@@ -19,7 +20,7 @@ import blogpostPreview from './blogpostList/blogpostPreview/blogpostPreview';
 import blogfooter from './footer/footer';
 
 const mainModule = angular
-  .module('mainModule', [ngRoute, ngResource, 'ngMaterial'])
+  .module('mainModule', [ngRoute, ngResource, 'ngCookies', 'ngMaterial'])
   .service('service', service)
   .component('appHome', home)
   .component('blogHeader', header)
@@ -36,8 +37,7 @@ const mainModule = angular
         template:
           '<blog-list flex layout="column" user="$ctrl.user"></blog-list>',
       })
-      //   .when('/login', { template: '<app-login></app-login>' })
-      //   .when('/edit', { template: '<app-blogpost-edit></app-blogpost-edit>' })
+      .when('/edit', { template: '<blogpost-edit></blogpost-edit>' })
       .otherwise('/');
   })
   .config(($mdThemingProvider) => {
@@ -50,6 +50,10 @@ const mainModule = angular
   })
   .config(($mdIconProvider) => {
     $mdIconProvider.defaultFontSet('FontAwesome').fontSet('fa', 'FontAwesome');
+  })
+  .config(($cookiesProvider) => {
+    // eslint-disable-next-line no-param-reassign
+    $cookiesProvider.defaults.path = '/';
   });
 
 angular.bootstrap(document, [mainModule.name], { strictDi: true });

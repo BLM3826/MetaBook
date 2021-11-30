@@ -7,6 +7,7 @@
   },
   "rules": {
     // disable requiring trailing commas
+        "linebreak-style": 0,
     "comma-dangle": 0,
     "max-len": ["error", {"code": 120, "ignoreComments": true, "ignoreUrls": true, "ignoreStrings": true}],
     "no-unused-vars": ["error", { "argsIgnorePattern": "next" }]

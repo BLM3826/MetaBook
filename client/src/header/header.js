@@ -4,10 +4,16 @@ import loginTemplate from './login/loginTemplate.html';
 import './header.css';
 
 export class headerController {
-  constructor($mdDialog, $log, $mdPanel) {
+  constructor($mdDialog, $log, $mdPanel, $resource, $cookies) {
     this.$mdDialog = $mdDialog;
     this.$log = $log;
     this.$mdPanel = $mdPanel;
+    this.$resource = $resource;
+    this.$cookies = $cookies;
+  }
+
+  $onInit() {
+    console.log(this.user);
   }
 
 
@@ -37,11 +43,15 @@ export class headerController {
   }
 
   logout() {
-    this.onUserChange({ user: null });
+    this.$resource('/api/logout').save().$promise.then((res) => {
+      this.onUserChange({ user: null });
+      this.$cookies.remove('user');
+      console.log('logged out', res);
+    });
   }
 }
 
-headerController.$inject = ['$mdDialog', '$log', '$mdPanel'];
+headerController.$inject = ['$mdDialog', '$log', '$mdPanel', '$resource', '$cookies'];
 
 const bindings = {
   text: '<',

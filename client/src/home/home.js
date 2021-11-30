@@ -3,9 +3,10 @@ import template from './home.html';
 import './home.css';
 
 export class homeController {
-  constructor($log) {
+  constructor($log, $cookies) {
     // binding are not yet available here
     this.$log = $log; // init on constructor imported services to have access from 'this'
+    this.$cookies = $cookies;
     this.user = null;
     // console.log(this.user);
   }
@@ -15,6 +16,8 @@ export class homeController {
   }
 
   $onInit() {
+    // get the user from the cookies
+    this.user = this.$cookies.getObject('user');
     console.log(this.user);
   }
 
@@ -38,5 +41,5 @@ export class homeController {
     this.user = user;
   }
 }
-homeController.$inject = ['$log'];
+homeController.$inject = ['$log', '$cookies'];
 export default { controller: homeController, template };
