@@ -15,7 +15,7 @@ export class BlogpostComp {
     console.log(this.user);
   }
 
-  onInit() {
+  $onInit() {
     // this.myPost = (this.user.username === this.post.name);
     console.log(this.post);
     console.log(this.user);

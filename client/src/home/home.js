@@ -8,7 +8,6 @@ export class homeController {
     this.$log = $log; // init on constructor imported services to have access from 'this'
     this.$cookies = $cookies;
     this.user = null;
-    // console.log(this.user);
   }
 
   $onChanges() {

@@ -14,6 +14,7 @@ export class blogListController {
 
   $onInit() {
     this.getBlogPosts();
+    console.log(this.user);
   }
   //   $postLink() {
   //     // runs after onInit
@@ -72,7 +73,6 @@ export class blogListController {
 blogListController.$inject = ['$mdDialog', '$log', '$resource', '$location'];
 
 const bindings = {
-  //   post: '<',
   user: '<',
 };
 

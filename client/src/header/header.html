@@ -1,14 +1,14 @@
-<md-toolbar class="header-stuff" layout="row" layout-align="space-between">
+<md-toolbar class="header-stuff" layout="row" layout-align="space-between" md-colors="{background: 'blue-700'}">
     <div class="left-header" layout="row" layout-align="start end" layout-margin="">
-        <img src="../assets/images/metabook-logo.png" alt="metabook-logo" width="120px" height="auto" ng-style="{ 'background-color': '#fff', 'border-radius': '30px' }" layout-padding="">
+        <img src="../assets/images/metabook-logo2.png" alt="metabook-logo" width="120px" height="auto" ng-style="{ 'background-color': '#fff', 'border-radius': '15px' }" layout-padding="">
         <h1 class="welcome-text md-display-3">Welcome to MetaBook</h1>
     </div>
     <div class="right-header" layout="column" layout-align="end" layout-margin="">
         <h3 class="user-connected md-headline" layout="row" layout-align="end center" ng-if="$ctrl.user">Connected as {{$ctrl.user.username}}</h3>
         <div class="btns" layout="row" layout-align="end center">
-            <md-button class="md-raised" ng-if="!$ctrl.user" ng-click="$ctrl.openLogin($event)">Log in</md-button>
-            <md-button class="md-raised" ng-if="$ctrl.user">My posts</md-button>
-            <md-button class="md-raised md-warn" ng-if="$ctrl.user" ng-click="$ctrl.logout()">Log out</md-button>
+            <md-button class="md-raised md-accent md-hue-2" ng-if="!$ctrl.user" ng-click="$ctrl.openLogin($event)">Log in</md-button>
+            <md-button class="md-raised md-accent md-hue-2" ng-if="$ctrl.user">My posts</md-button>
+            <md-button class="md-raised md-warn md-hue-1" ng-if="$ctrl.user" ng-click="$ctrl.logout()" md-colors="">Log out</md-button>
         </div>
     </div>
 </md-toolbar>
