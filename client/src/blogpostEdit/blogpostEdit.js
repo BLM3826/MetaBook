@@ -1,8 +1,9 @@
 import template from './blogpostEdit.html';
 
 export class blogPostEditController {
-  //   constructor() {
-  //   }
+  constructor($location) {
+    this.$location = $location;
+  }
   //   $onInit() {
   //     // binding available here
   //   }
@@ -11,9 +12,15 @@ export class blogPostEditController {
   //   }
   //   $onChanges(changesObj) {
   //   }
+
+  cancelEdit() {
+    this.$location.path('/');
+  }
   //   $onDestroy() {
   //   }
 }
+
+blogPostEditController.$inject = ['$location'];
 
 const bindings = {
   post: '<',

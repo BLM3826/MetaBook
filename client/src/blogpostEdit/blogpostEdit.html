@@ -1,6 +1,6 @@
-<md-content layout="column" layout-align="space-between">
+<md-content layout="column" layout-align="space-between" layout-padding="" layout-margin="" layout-fill="">
     <div>
-        <h1 flex-offset="5" layout="column">Make a Metapost</h1>
+        <h1 class="md-display-1" layout="column">Make a Metapost</h1>
     </div>
     <div class="md-content-container" layout="row" layout-align="space-around stretch">
         <form layout="column" layout-align="space-around center" ng-submit="$ctrl.updatePost()">
@@ -16,6 +16,6 @@
         </form>
     </div>
     <div layout="row" layout-align="end">
-        <md-button class="md-raised md-warn">cancel</md-button>
+        <md-button class="md-raised md-warn" ng-click="$ctrl.cancelEdit()">cancel</md-button>
     </div>
 </md-content>

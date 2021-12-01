@@ -23,12 +23,15 @@ export class BlogpostComp {
 
   editPost() {
     this.$location.path('/edit');
+    this.$mdDialog.hide();
   }
 
   closePost() {
     this.$mdDialog.hide();
   }
 }
+
+BlogpostComp.$inject = ['$mdDialog', '$location'];
 
 const bindings = {
   post: '<',
