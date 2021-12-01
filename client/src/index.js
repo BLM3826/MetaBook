@@ -38,7 +38,8 @@ const mainModule = angular
           '<blog-list flex layout="column" user="$ctrl.user"></blog-list>',
       })
       .when('/edit', {
-        template: '<blogpost-edit flex layout="column" layout-align="space-between"></blogpost-edit>',
+        template:
+          '<blogpost-edit flex layout="column" layout-align="space-between"></blogpost-edit>',
       })
       .otherwise('/');
   })
