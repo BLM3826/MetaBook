@@ -2,23 +2,35 @@
 import template from './blogpostEdit.html';
 
 export class blogPostEditController {
-  constructor($location) {
+  constructor($location, $resource, $route, $routeParams) {
     this.$location = $location;
-    this.editHeadline = 'Make a Metapost';
-    this.editButtonText = 'Add';
+    this.$resource = $resource;
+    this.$route = $route;
+    this.$routeParams = $routeParams;
+    this.editHeadline = 'Edit your Metapost';
+    this.editButtonText = 'Update';
   }
-  //   $onInit() {
-  //     // binding available here
-  // change the data from create to edit
-  // this.editHeadline = 'Edit a Metapost';
-  // this.editButtonText = 'update';
+
+  $onInit() {
+    console.log(this.$location.path());
+    console.log(this.$route.current);
+    console.log(this.$routeParams.id);
+
+    if (this.$location.path() === '/add') {
+      this.editHeadline = 'Make a Metapost';
+      this.editButtonText = 'Add';
+    }
+    // this.getPostById(this.$location.search().id);
+  }
   // change also the input field values to none
-  // }
-  //   $postLink() {
-  //     // runs after onInit
+
+  // get the post data from the server by id
+  //   getPostById(id) {
+  //     // this.$resource('/api/blogposts/:id').get({ id }, (post) => {
+  //     //   this.post = post;
+  //     // });
   //   }
-  //   $onChanges(changesObj) {
-  //   }
+
 
   cancelEdit() {
     this.$location.path('/');
@@ -28,7 +40,7 @@ export class blogPostEditController {
   //   }
 }
 
-blogPostEditController.$inject = ['$location'];
+blogPostEditController.$inject = ['$location', '$resource', '$routeParams', '$route'];
 
 const bindings = {
   post: '<',

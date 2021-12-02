@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import angular from 'angular';
 import ngRoute from 'angular-route';
 import ngResource from 'angular-resource';
@@ -59,7 +60,6 @@ const mainModule = angular
     $mdIconProvider.defaultFontSet('FontAwesome').fontSet('fa', 'FontAwesome');
   })
   .config(($cookiesProvider) => {
-    // eslint-disable-next-line no-param-reassign
     $cookiesProvider.defaults.path = '/';
   });
 
