@@ -66,7 +66,7 @@ export class blogListController {
   }
 
   editPost() {
-    this.$location.path('/edit');
+    this.$location.path('/add');
   }
 }
 

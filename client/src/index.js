@@ -37,7 +37,11 @@ const mainModule = angular
         template:
           '<blog-list flex layout="column" user="$ctrl.user"></blog-list>',
       })
-      .when('/edit', {
+      .when('/edit/:id', {
+        template:
+          '<blogpost-edit flex layout="column" layout-align="space-between"></blogpost-edit>',
+      })
+      .when('/add', {
         template:
           '<blogpost-edit flex layout="column" layout-align="space-between"></blogpost-edit>',
       })

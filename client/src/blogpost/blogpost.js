@@ -22,7 +22,7 @@ export class BlogpostComp {
   }
 
   editPost() {
-    this.$location.path('/edit');
+    this.$location.path(`/edit/${this.post.id}`);
     this.$mdDialog.hide();
   }
 
