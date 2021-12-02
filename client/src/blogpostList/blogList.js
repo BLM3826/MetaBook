@@ -4,17 +4,19 @@ import postTemplate from '../blogpost/blogpostTemplate.html';
 import './blogList.css';
 
 export class blogListController {
-  constructor($mdDialog, $log, $resource, $location) {
+  constructor($mdDialog, $log, $resource, $location, $routeParams) {
     this.posts = [];
     this.$mdDialog = $mdDialog;
     this.$log = $log;
     this.$resource = $resource;
     this.$location = $location;
+    this.$routeParams = $routeParams;
   }
 
   $onInit() {
+    this.pagename = this.$routeParams.username ? `user/${this.$routeParams.username}` : '';
+    console.log(this.pagename);
     this.getBlogPosts();
-    console.log(this.user);
   }
   //   $postLink() {
   //     // runs after onInit
@@ -26,26 +28,43 @@ export class blogListController {
   //   $onDestroy() {
   //   }
 
+  //   userPosts() {
+  //     this.$resource(`/api/blogposts/${this.user.username}`)
+  //       .get()
+  //       .$promise.then((posts) => {
+  //         this.posts = posts;
+  //       });
+  //   }
+
   getBlogPosts() {
+    console.log('getBlogPosts');
     this.$resource(
-      '/api/blogposts',
-      {},
-      {
-        blogposts: {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          isArray: true,
-        },
-      }
-    )
-      .blogposts({ posts: this.posts })
+      `/api/blogposts/${this.pagename}`
+    ).query()
       .$promise.then((res) => {
         console.log(res);
         this.posts = res;
       });
   }
+
+  //   '/api/blogposts',
+  //   {},
+  //   {
+  //     blogposts: {
+  //       method: 'GET',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       isArray: true,
+  //     },
+  //   }
+  // )
+  //   .blogposts({ posts: this.posts })
+  //   .$promise.then((res) => {
+  //     console.log(res);
+  //     this.posts = res;
+  //   });
+  //   }
 
   openPost(post, ev) {
     const locals = { post, user: this.user };
@@ -70,7 +89,7 @@ export class blogListController {
   }
 }
 
-blogListController.$inject = ['$mdDialog', '$log', '$resource', '$location'];
+blogListController.$inject = ['$mdDialog', '$log', '$resource', '$location', '$routeParams'];
 
 const bindings = {
   user: '<',

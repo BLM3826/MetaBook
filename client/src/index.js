@@ -38,13 +38,17 @@ const mainModule = angular
         template:
           '<blog-list flex layout="column" user="$ctrl.user"></blog-list>',
       })
-      .when('/edit/:id', {
+      .when('/:username/posts', {
         template:
-          '<blogpost-edit flex layout="column" layout-align="space-between"></blogpost-edit>',
+          '<blog-list flex layout="column" user="$ctrl.user"></blog-list>',
+      })
+      .when('/edit/:postid', {
+        template:
+          '<blogpost-edit flex layout="column" layout-align="space-between" user="$ctrl.user"></blogpost-edit>',
       })
       .when('/add', {
         template:
-          '<blogpost-edit flex layout="column" layout-align="space-between"></blogpost-edit>',
+          '<blogpost-edit flex layout="column" layout-align="space-between" user="$ctrl.user"></blogpost-edit>',
       })
       .otherwise('/');
   })

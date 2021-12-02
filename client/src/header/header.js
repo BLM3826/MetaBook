@@ -4,12 +4,13 @@ import loginTemplate from './login/loginTemplate.html';
 import './header.css';
 
 export class headerController {
-  constructor($mdDialog, $log, $mdPanel, $resource, $cookies) {
+  constructor($mdDialog, $log, $mdPanel, $resource, $cookies, $location) {
     this.$mdDialog = $mdDialog;
     this.$log = $log;
     this.$mdPanel = $mdPanel;
     this.$resource = $resource;
     this.$cookies = $cookies;
+    this.$location = $location;
   }
 
   $onInit() {
@@ -42,6 +43,10 @@ export class headerController {
     console.log(this.$mdDialog);
   }
 
+  userPosts() {
+    this.$location.path(`/${this.user.username}/posts`);
+  }
+
   logout() {
     this.$resource('/api/logout').save().$promise.then((res) => {
       this.onUserChange({ user: null });
@@ -51,7 +56,7 @@ export class headerController {
   }
 }
 
-headerController.$inject = ['$mdDialog', '$log', '$mdPanel', '$resource', '$cookies'];
+headerController.$inject = ['$mdDialog', '$log', '$mdPanel', '$resource', '$cookies', '$location'];
 
 const bindings = {
   text: '<',

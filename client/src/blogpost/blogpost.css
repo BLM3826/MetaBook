@@ -1,11 +1,6 @@
-/* blogpost {
-    border: solid 1px #000;
-    border-radius: 10px;
-    background-color: white;
-    padding: 2% 2% 1% 2%;
-    width: 40vw;
+.my-post { 
+    border-bottom: groove 5px orange;
 }
-*/
 
 .blogpostView__title {
   text-align: center;
