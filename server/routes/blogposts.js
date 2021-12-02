@@ -57,9 +57,10 @@ router.put('/:id', (req, res) => {
 // DELETE a specific blogpost
 router.delete('/:id', (req, res) => {
   const blogpost = posts.find((post) => post.id === parseInt(req.params.id, 10));
+  console.log(blogpost);
   posts.splice(posts.indexOf(blogpost), 1);
   fs.writeFileSync(filepath, JSON.stringify(posts));
-  console.log(blogpost);
+  console.log('DONE');
   res.json(blogpost);
 });
 

@@ -46,10 +46,17 @@ export class blogPostEditController {
   addPost() {
     this.post.name = this.user.username;
     console.log(this.post);
-    this.$resource('/api/blogposts').save(this.post, () => {
-      console.log(this.post);
-      this.$location.path('/');
-    });
+    this.$resource('/api/blogposts')
+      .save(this.post, () => {
+        console.log(this.post);
+        this.$location.path('/');
+      })
+    // timeout to wait for the server to add the post
+      .$promise.then(() => {
+        this.$timeout(() => {
+          this.$location.path('/');
+        }, 1000);
+      });
   }
 
   updatePost() {

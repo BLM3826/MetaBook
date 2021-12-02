@@ -28,14 +28,6 @@ export class blogListController {
   //   $onDestroy() {
   //   }
 
-  //   userPosts() {
-  //     this.$resource(`/api/blogposts/${this.user.username}`)
-  //       .get()
-  //       .$promise.then((posts) => {
-  //         this.posts = posts;
-  //       });
-  //   }
-
   getBlogPosts() {
     console.log('getBlogPosts');
     this.$resource(
@@ -46,25 +38,6 @@ export class blogListController {
         this.posts = res;
       });
   }
-
-  //   '/api/blogposts',
-  //   {},
-  //   {
-  //     blogposts: {
-  //       method: 'GET',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       isArray: true,
-  //     },
-  //   }
-  // )
-  //   .blogposts({ posts: this.posts })
-  //   .$promise.then((res) => {
-  //     console.log(res);
-  //     this.posts = res;
-  //   });
-  //   }
 
   openPost(post, ev) {
     const locals = { post, user: this.user };
