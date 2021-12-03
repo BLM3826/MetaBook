@@ -13,17 +13,6 @@ export class BlogpostComp {
     this.$timeout = $timeout;
   }
 
-  $onChanges() {
-    console.log(this.post);
-    console.log(this.user);
-  }
-
-  $onInit() {
-    // this.myPost = (this.user.username === this.post.name);
-    console.log(this.post);
-    console.log(this.user);
-  }
-
   editPost() {
     this.$location.path(`/edit/${this.post.id}`);
     this.$mdDialog.hide();

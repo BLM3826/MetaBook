@@ -18,9 +18,7 @@ export class LoginController {
   /** ***************************my-functions*************************** */
 
   flipLogin() {
-    console.log(this.isLogin);
     this.isLogin = !this.isLogin;
-
     this.submitName = this.isLogin ? 'Login' : 'Register';
     this.toggleName = this.isLogin ? 'Sign up' : 'Sign in';
   }
@@ -32,10 +30,7 @@ export class LoginController {
     console.log('login button clicked');
 
     if (this.isLogin) {
-      console.log('login');
-      console.log(this.user);
       if (this.user.username === 'admin' && this.user.password === 'admin') {
-        console.log(`admin${this.check}`);
         this.$cookies.putObject('user', this.user);
         this.$mdDialog.hide(this.user);
       } else {
@@ -62,7 +57,6 @@ export class LoginController {
           })
           .$promise.then((response) => {
             console.log(response);
-            console.log(`login${this.check}`);
             // store the user in cookie as json
             this.$cookies.putObject('user', this.user);
             this.$mdDialog.hide(this.user);
@@ -73,8 +67,6 @@ export class LoginController {
           });
       }
     } else {
-      console.log('register');
-
       this.$resource(
         '/api/register',
         {},
@@ -98,7 +90,6 @@ export class LoginController {
         })
         .$promise.then((response) => {
           console.log(response);
-          console.log(`register${this.check}`);
           this.$cookies.putObject('user', this.user);
           this.$mdDialog.hide(this.user);
         })

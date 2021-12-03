@@ -13,17 +13,7 @@ export class headerController {
     this.$location = $location;
   }
 
-  $onInit() {
-    console.log(this.user);
-  }
-
-
   openLogin(ev) {
-    // const position = this.$mdPanel.newPanelPosition()
-    //   .absolute()
-    //   .right()
-    //   .top();
-
     this.$mdDialog
       .show({
         controller: () => { },
@@ -40,7 +30,6 @@ export class headerController {
       .catch((err) => {
         this.$log.error(err);
       });
-    console.log(this.$mdDialog);
   }
 
   userPosts() {

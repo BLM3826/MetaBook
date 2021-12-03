@@ -26,8 +26,6 @@ export class blogPostEditController {
       this.getPostById(this.postid);
     }
   }
-  // this.getPostById(this.$location.search().id);
-  // change also the input field values to none
 
   // get the post data from the server by id
   getPostById(id) {
@@ -52,7 +50,7 @@ export class blogPostEditController {
         console.log(this.post);
         console.log('added');
       })
-    // timeout to wait for the server to add the post
+      // timeout to wait for the server to add the post
       .$promise.then(() => {
         this.loading = true;
         this.$timeout(() => {
@@ -62,12 +60,15 @@ export class blogPostEditController {
   }
 
   updatePost() {
-    this.$resource('/api/blogposts/:id',
+    this.$resource(
+      '/api/blogposts/:id',
       { id: this.postid },
-      { update: { method: 'PUT' } }).update(this.post, () => {
-      console.log(this.post);
-      console.log('updated');
-    })
+      { update: { method: 'PUT' } }
+    )
+      .update(this.post, () => {
+        console.log(this.post);
+        console.log('updated');
+      })
       // timeout to wait for the server to update the post
       .$promise.then(() => {
         this.loading = true;
@@ -80,15 +81,18 @@ export class blogPostEditController {
   cancelEdit() {
     this.$location.path('/');
   }
-
-  //   $onDestroy() {
-  //   }
 }
 
-blogPostEditController.$inject = ['$location', '$resource', '$route', '$routeParams', '$timeout'];
+blogPostEditController.$inject = [
+  '$location',
+  '$resource',
+  '$route',
+  '$routeParams',
+  '$timeout',
+];
 
 const bindings = {
-//   post: '<',
+  //   post: '<',
   user: '<',
 };
 

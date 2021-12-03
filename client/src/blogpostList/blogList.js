@@ -15,18 +15,8 @@ export class blogListController {
 
   $onInit() {
     this.pagename = this.$routeParams.username ? `user/${this.$routeParams.username}` : '';
-    console.log(this.pagename);
     this.getBlogPosts();
   }
-  //   $postLink() {
-  //     // runs after onInit
-  //   }
-  //   $onChanges() {
-  //     console.log(this.post);
-  //     console.log(this.user);
-  //   }
-  //   $onDestroy() {
-  //   }
 
   getBlogPosts() {
     console.log('getBlogPosts');
@@ -34,7 +24,6 @@ export class blogListController {
       `/api/blogposts/${this.pagename}`
     ).query()
       .$promise.then((res) => {
-        console.log(res);
         this.posts = res;
       });
   }

@@ -6,7 +6,6 @@ const logger = require('morgan');
 const path = require('path');
 const usersRouter = require('./routes/users');
 const postsRouter = require('./routes/blogposts');
-// const router = require('./routes/router');
 
 const app = express();
 const port = 3000;
