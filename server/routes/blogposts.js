@@ -31,8 +31,9 @@ router.get('/:id', (req, res) => {
 
 // POST a new blogpost
 router.post('/', (req, res) => {
+  const lastid = posts[posts.length - 1].id;
   const newPost = {
-    id: posts.length,
+    id: lastid + 1,
     name: req.body.name,
     title: req.body.title,
     content: req.body.content,

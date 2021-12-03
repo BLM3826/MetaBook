@@ -13,8 +13,13 @@
                 <label for="content">Content</label>
                 <textarea class="form-control" id="content" ng-model="$ctrl.post.content" rows="3"></textarea>
             </md-input-container>
-            <div layout="row" layout-align="center">
-                <md-button class="md-raised my-post" type="submit">{{$ctrl.editButtonText}}</md-button>
+            <div layout="row" layout-align="end">
+                <div flex="60" layout="row" layout-align="end">
+                    <md-button class="md-raised my-post" type="submit">{{$ctrl.editButtonText}}</md-button>
+                </div>
+                <div flex="40" layout="row" layout-align="center">
+                    <md-progress-circular md-mode="indeterminate" class="md-accent" ng-if=$ctrl.loading></md-progress-circular>
+                </div>
             </div>
         </form>
     </div>

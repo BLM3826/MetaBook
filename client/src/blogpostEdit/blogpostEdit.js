@@ -13,11 +13,12 @@ export class blogPostEditController {
     this.editHeadline = 'Edit your Metapost';
     this.editButtonText = 'Update';
     this.post = {};
+    this.loading = false;
   }
 
   $onInit() {
     console.log(this.$location.path());
-
+    this.loading = false;
     if (this.$location.path() === '/add') {
       this.editHeadline = 'Make a Metapost';
       this.editButtonText = 'Add';
@@ -49,13 +50,14 @@ export class blogPostEditController {
     this.$resource('/api/blogposts')
       .save(this.post, () => {
         console.log(this.post);
-        this.$location.path('/');
+        console.log('added');
       })
     // timeout to wait for the server to add the post
       .$promise.then(() => {
+        this.loading = true;
         this.$timeout(() => {
           this.$location.path('/');
-        }, 1000);
+        }, 2000);
       });
   }
 
@@ -68,20 +70,12 @@ export class blogPostEditController {
     })
       // timeout to wait for the server to update the post
       .$promise.then(() => {
+        this.loading = true;
         this.$timeout(() => {
           this.$location.path('/');
-        }, 500);
+        }, 2000);
       });
-    //   .this.$timeout(() => {
-    //     this.$location.path('/');
-    //   }, 1000);
   }
-
-  // this.$resource('/api/blogposts/:id').update(this.post, () => {
-  //   this.$location.path('/');
-  // });
-  //   }
-
 
   cancelEdit() {
     this.$location.path('/');
