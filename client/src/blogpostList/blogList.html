@@ -1,4 +1,6 @@
 <div class="blogListDiv" layout="row" layout-wrap="">
     <blogpost-preview post="post" user="$ctrl.user" flex="33" ng-repeat="post in $ctrl.posts" ng-click="$ctrl.openPost(post, $event)" layout="row"></blogpost-preview>
 </div>
-<md-button class="md-fab md-raised md-fab-bottom-right" ng-click="$ctrl.editPost()" ng-if="$ctrl.user"><md-icon md-font-icon="fa fa-plus"></md-icon></md-button>
+<div layout="row" layout-align="end end" layout-padding="" layout-margin="">
+    <md-button class="md-fab md-raised" ng-click="$ctrl.editPost()" ng-if="$ctrl.user"><md-icon md-font-icon="fa fa-plus"></md-icon></md-button>
+</div>
