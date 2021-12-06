@@ -1,10 +1,9 @@
 <md-content layout="row" layout-align="center" layout-padding="" layout-margin="" layout-fill="">
-    <div>
-        <h1 class="md-display-1" layout="column">{{$ctrl.editHeadline}}</h1>
-    </div>
-    <div class="md-content-container edit-form-container my-post" layout="row" layout-align="center stretch" 
-    layout-padding="" layout-margin="" flex="33" layout-fill="" md-whiteframe="3">
-        <form layout="column" layout-align="space-around" layout-fill="" ng-submit="$ctrl.submitPost()">
+    <div flex=5></div>
+    <div class="md-content-container edit-form-container my-post" layout="column" layout-align="space-around"
+        layout-padding="" layout-margin="" flex="33" layout-fill="" md-whiteframe="3">
+        <h1 class="md-display-1" flex="10">{{$ctrl.editHeadline}}</h1>
+        <form layout="column" layout-align="space-around" flex="90" ng-submit="$ctrl.submitPost()">
             <md-input-container class="md-block">
                 <label for="title">Title</label>
                 <input type="text" class="form-control" id="title" ng-model="$ctrl.post.title">
@@ -18,7 +17,8 @@
                     <md-button class="md-raised my-post" type="submit">{{$ctrl.editButtonText}}</md-button>
                 </div>
                 <div flex="40" layout="row" layout-align="center">
-                    <md-progress-circular md-mode="indeterminate" class="md-accent" ng-if=$ctrl.loading></md-progress-circular>
+                    <md-progress-circular md-mode="indeterminate" class="md-accent" ng-if=$ctrl.loading>
+                    </md-progress-circular>
                 </div>
             </div>
         </form>

@@ -19,7 +19,6 @@ export class blogListController {
   }
 
   getBlogPosts() {
-    console.log('getBlogPosts');
     this.$resource(
       `/api/blogposts/${this.pagename}`
     ).query()

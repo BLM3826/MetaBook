@@ -17,7 +17,6 @@ export class blogPostEditController {
   }
 
   $onInit() {
-    console.log(this.$location.path());
     this.loading = false;
     if (this.$location.path() === '/add') {
       this.editHeadline = 'Make a Metapost';
