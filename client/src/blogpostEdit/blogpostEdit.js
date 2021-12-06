@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+// import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import template from './blogpostEdit.html';
 import './blogpostEdit.css';
 
@@ -95,4 +96,6 @@ const bindings = {
   user: '<',
 };
 
-export default { controller: blogPostEditController, template, bindings };
+export default {
+  controller: blogPostEditController, template, bindings
+};

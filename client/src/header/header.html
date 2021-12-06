@@ -7,7 +7,7 @@
         <h3 class="user-connected md-headline" layout="row" layout-align="end center" ng-if="$ctrl.user">Connected as {{$ctrl.user.username}}</h3>
         <div class="btns" layout="row" layout-align="end center">
             <md-button class="md-raised md-accent md-hue-2" ng-if="!$ctrl.user" ng-click="$ctrl.openLogin($event)">Log in</md-button>
-            <md-button class="md-raised md-accent md-hue-2" ng-if="$ctrl.user" ng-click="$ctrl.userPosts()">My posts</md-button>
+            <md-button class="md-raised md-accent" ng-if="$ctrl.user" ng-click="$ctrl.userPosts()">My posts</md-button>
             <md-button class="md-raised md-warn md-hue-1" ng-if="$ctrl.user" ng-click="$ctrl.logout()" md-colors="">Log out</md-button>
         </div>
     </div>

@@ -1,6 +1,7 @@
+<h1 class="md-display-3" ng-if="$ctrl.noPosts">No Posts by this user yet!</h1>
 <div class="blogListDiv" layout="row" layout-wrap="">
     <blogpost-preview post="post" user="$ctrl.user" flex="33" ng-repeat="post in $ctrl.posts" ng-click="$ctrl.openPost(post, $event)" layout="row"></blogpost-preview>
 </div>
 <div layout="row" layout-align="end end" layout-padding="" layout-margin="">
-    <md-button class="md-fab md-raised" ng-click="$ctrl.editPost()" ng-if="$ctrl.user"><md-icon md-font-icon="fa fa-plus"></md-icon></md-button>
+    <md-button class="md-fab md-raised md-accent" ng-click="$ctrl.editPost()" ng-if="$ctrl.user"><md-icon md-font-icon="fa fa-plus"></md-icon></md-button>
 </div>

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-param-reassign */
 import angular from 'angular';
 import ngRoute from 'angular-route';
@@ -10,6 +11,9 @@ import '@fortawesome/fontawesome-free/css/solid.css';
 import '@fortawesome/fontawesome-free/css/brands.css';
 import '@fortawesome/fontawesome-free/css/fontawesome.css';
 import '@fortawesome/fontawesome-free/css/v4-shims.css';
+import 'textangular/dist/textAngular.css';
+import 'textangular/dist/textAngular-sanitize.min';
+import 'textangular/dist/textAngular.min';
 import service from './service';
 import home from './home/home';
 import header from './header/header';
@@ -21,7 +25,15 @@ import blogpostPreview from './blogpostList/blogpostPreview/blogpostPreview';
 import blogfooter from './footer/footer';
 
 const mainModule = angular
-  .module('mainModule', [ngRoute, ngResource, 'ngCookies', 'ngMaterial'])
+  .module('mainModule', [
+    ngRoute,
+    ngResource,
+    'ngCookies',
+    'ngMaterial',
+    'textAngular',
+  ]).config(() => {
+    angular.lowercase = angular.$$lowercase;
+  })
   .service('service', service)
   .component('appHome', home)
   .component('blogHeader', header)
@@ -65,6 +77,13 @@ const mainModule = angular
   })
   .config(($cookiesProvider) => {
     $cookiesProvider.defaults.path = '/';
+  })
+  .run(($rootScope, $location, $cookies) => {
+    $rootScope.$on('$routeChangeStart', () => {
+      if (!$cookies.getObject('user')) {
+        $location.path('/');
+      }
+    });
   });
 
 angular.bootstrap(document, [mainModule.name], { strictDi: true });

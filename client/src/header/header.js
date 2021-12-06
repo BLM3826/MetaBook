@@ -41,6 +41,7 @@ export class headerController {
       this.onUserChange({ user: null });
       this.$cookies.remove('user');
       console.log('logged out', res);
+      this.$location.path('/');
     });
   }
 }

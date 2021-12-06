@@ -20,7 +20,8 @@
     "angular-cookies": "^1.8.2",
     "angular-material": "^1.2.3",
     "angular-resource": "^1.8.2",
-    "angular-route": "^1.7.4"
+    "angular-route": "^1.7.4",
+    "textangular": "^1.5.16"
   },
   "babel": {
     "presets": [

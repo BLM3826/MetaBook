@@ -11,6 +11,7 @@ export class blogListController {
     this.$resource = $resource;
     this.$location = $location;
     this.$routeParams = $routeParams;
+    this.noPosts = false;
   }
 
   $onInit() {
@@ -24,6 +25,7 @@ export class blogListController {
     ).query()
       .$promise.then((res) => {
         this.posts = res;
+        this.noPosts = this.posts.length === 0;
       });
   }
 
