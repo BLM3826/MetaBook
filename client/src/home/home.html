@@ -1,3 +1,5 @@
 <blog-header user="$ctrl.user" on-user-change="$ctrl.userChanged(user)"></blog-header>
-<ng-view flex layout="column" layout-fill=""></ng-view>
-<blog-footer></blog-footer>
+<div layout="column" layout-align="space-between" flex>
+    <ng-view layout="column"></ng-view>
+    <blog-footer></blog-footer>
+</div>

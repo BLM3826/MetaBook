@@ -103,6 +103,10 @@ export class LoginController {
         });
     }
   }
+
+  closePost() {
+    this.$mdDialog.hide();
+  }
   /** ***************************end-my-functions*************************** */
 }
 

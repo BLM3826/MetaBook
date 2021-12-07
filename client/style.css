@@ -1,3 +1,7 @@
 /* html, body{
     position: relative;
 } */
+
+md-button {
+    color: #fff !important;
+}

@@ -1,5 +1,10 @@
 <div class="loginDiv">
-    <h3 class="md-title">{{$ctrl.submitName}}:</h3>
+    <div layout="row" layout-align="space-between">
+        <h3 class="md-title">{{$ctrl.submitName}}:</h3>
+        <md-button class="md-icon-button" ng-click="$ctrl.closePost()" layout="row" layout-align="end end">
+            <md-icon class="closeicon" md-font-icon="fa fa-close fa-2x"></md-icon>
+        </md-button>
+    </div>
     <form class="login-form" layout="column" layout-align="space-between center" ng-submit="$ctrl.login()">
         <!-- input username and password -->
         <md-input-container class="md-block">
@@ -11,6 +16,6 @@
             <input ng-model="$ctrl.user.password" type="password" required>
         </md-input-container>
         <md-button class="md-raised" type="submit">{{$ctrl.submitName}}</md-button>
-        <md-button class="md-warn" ng-click="$ctrl.flipLogin()">{{$ctrl.toggleName}}</md-button>
+        <md-button class="md-warn togglelog" ng-click="$ctrl.flipLogin()">{{$ctrl.toggleName}}</md-button>
     </form>
 </div>

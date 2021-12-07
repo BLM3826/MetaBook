@@ -48,7 +48,7 @@ const mainModule = angular
     $routeProvider
       .when('/', {
         template:
-          '<blog-list flex layout="column" layout-align="space-between" layout-fill="" user="$ctrl.user"></blog-list>',
+          '<blog-list flex layout="column" layout-align="space-between" user="$ctrl.user"></blog-list>',
       })
       .when('/:username/posts', {
         template:
