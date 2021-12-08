@@ -12,7 +12,7 @@
         <hr>
     </div>
     <div class="blogpostView__content">
-        <p>{{ $ctrl.post.content }}</p>
+        <p ng-bind-html="$ctrl.post.content"></p>
     </div>
     <div class="blogpostView__bottom" layout="row" layout-align="space-between center">
         <span class="blogpostView__user md-caption">

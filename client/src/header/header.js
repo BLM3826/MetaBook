@@ -4,13 +4,25 @@ import loginTemplate from './login/loginTemplate.html';
 import './header.css';
 
 export class headerController {
-  constructor($mdDialog, $log, $mdPanel, $resource, $cookies, $location) {
+  constructor($mdDialog, $log, $mdPanel, $resource, $cookies, $location, $window) {
     this.$mdDialog = $mdDialog;
     this.$log = $log;
     this.$mdPanel = $mdPanel;
     this.$resource = $resource;
     this.$cookies = $cookies;
     this.$location = $location;
+    this.$window = $window;
+  }
+
+  $onInit() {
+    sessionStorage.setItem('theme', this.theme);
+  }
+
+  // switch theme to dark
+  switchTheme() {
+    console.log('switching theme');
+    this.theme = this.theme === 'default' ? 'dark' : 'default';
+    this.onThemeChange({ theme: this.theme });
   }
 
   openLogin(ev) {
@@ -46,12 +58,14 @@ export class headerController {
   }
 }
 
-headerController.$inject = ['$mdDialog', '$log', '$mdPanel', '$resource', '$cookies', '$location'];
+headerController.$inject = ['$mdDialog', '$log', '$mdPanel', '$resource', '$cookies', '$location', '$window'];
 
 const bindings = {
   text: '<',
   user: '<',
+  theme: '<',
   onUserChange: '&',
+  onThemeChange: '&',
 };
 
 export default { controller: headerController, template, bindings };

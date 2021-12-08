@@ -31,7 +31,8 @@ const mainModule = angular
     'ngCookies',
     'ngMaterial',
     'textAngular',
-  ]).config(() => {
+  ])
+  .config(() => {
     angular.lowercase = angular.$$lowercase;
   })
   .service('service', service)
@@ -67,10 +68,28 @@ const mainModule = angular
   .config(($mdThemingProvider) => {
     $mdThemingProvider
       .theme('default')
-      .primaryPalette('blue')
+      .primaryPalette('blue', {
+        default: '700',
+      })
       .accentPalette('orange')
       .warnPalette('red')
-      .backgroundPalette('grey');
+      .backgroundPalette('grey', {
+        'hue-2': '700'
+      });
+
+    $mdThemingProvider
+      .theme('dark')
+      .primaryPalette('orange')
+      .accentPalette('blue', {
+        default: '700',
+      })
+      .warnPalette('red')
+      .backgroundPalette('grey', {
+        default: '900',
+        'hue-1': '800',
+        'hue-2': '400',
+      })
+      .dark();
   })
   .config(($mdIconProvider) => {
     $mdIconProvider.defaultFontSet('FontAwesome').fontSet('fa', 'FontAwesome');
