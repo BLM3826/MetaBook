@@ -11,6 +11,7 @@ export class BlogpostComp {
     this.$resource = $resource;
     this.$route = $route;
     this.$timeout = $timeout;
+    this.postTheme = sessionStorage.getItem('theme') === 'default' ? 'my-post' : 'my-post-alt';
   }
 
   editPost() {

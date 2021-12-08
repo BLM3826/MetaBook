@@ -1,5 +1,5 @@
 <div class="blogpostView md-dialog-content" layout="column" layout-align="space-between"
-    ng-class='{ "my-post": $ctrl.user.username === $ctrl.post.name }'>
+    ng-class='{ "{{ $ctrl.postTheme }}": $ctrl.user.username === $ctrl.post.name }'>
     <div>
         <div class="blogpostView__header" layout="row" layout-align="space-around" layout-fill="">
             <h1 class="blogpostView__title" flex="95">

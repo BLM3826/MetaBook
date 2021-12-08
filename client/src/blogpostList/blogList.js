@@ -12,6 +12,7 @@ export class blogListController {
     this.$location = $location;
     this.$routeParams = $routeParams;
     this.noPosts = false;
+    this.theme = sessionStorage.getItem('theme');
   }
 
   $onInit() {

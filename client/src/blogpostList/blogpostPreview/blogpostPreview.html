@@ -1,5 +1,5 @@
 <md-card class="blogpostPreview" md-whiteframe="{{height}}" flex
-    ng-init="height = 3" ng-mouseenter="height = 9" ng-mouseleave="height = 3" ng-class='{ "my-post": $ctrl.user.username === $ctrl.post.name }'>
+    ng-init="height = 3" ng-mouseenter="height = 9" ng-mouseleave="height = 3" ng-class='{ "{{ $ctrl.postTheme }}": $ctrl.user.username === $ctrl.post.name }'>
     <md-card-title class="blogpostPreview__title">
         <md-card-title-text>
             <span class="blogpostPreview__user md-caption">

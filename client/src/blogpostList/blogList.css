@@ -1,27 +1,34 @@
 .blogpostPreview {
-    border-radius: 5px;
+  border-radius: 5px;
 }
 
 .stickybtn {
-    position: sticky;
-    bottom: 10px;
+  position: sticky;
+  bottom: 10px;
 }
 
 .md-warn:hover,
 .md-accent:hover,
 .md-primary:hover,
 .addbtn:hover .addicon {
-    color: #fff !important;
+  color: #fff !important; 
+  transition: 0.5s;
+}
+
+.accent-alt:hover,
+.accent-alt:hover .addicon {
+  color: #000 !important; 
     transition: 0.5s;
 }
 
-.togglelog:hover, .closeicon:hover {
-    color: #f44336 !important;
-    transition: 0.3s;
+.togglelog:hover,
+.closeicon:hover {
+  color: #f44336 !important;
+  transition: 0.3s;
 }
 
 .md-button,
 .addicon,
 .closeicon {
-    transition: 0.5s;
+  transition: 0.5s;
 }

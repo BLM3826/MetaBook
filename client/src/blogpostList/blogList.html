@@ -3,5 +3,5 @@
     <blogpost-preview post="post" user="$ctrl.user" flex="33" ng-repeat="post in $ctrl.posts" ng-click="$ctrl.openPost(post, $event)" layout="row"></blogpost-preview>
 </div>
 <div class="stickybtn" layout="row" layout-align="end end" layout-padding="" layout-margin="">
-    <md-button class="addbtn md-fab md-raised md-accent" ng-click="$ctrl.editPost()" ng-if="$ctrl.user"><md-icon class="addicon" md-font-icon="fa fa-plus fa-lg"></md-icon></md-button>
+    <md-button class="addbtn md-fab md-raised md-accent" ng-class="{ 'accent-alt': $ctrl.theme === 'dark' }" ng-click="$ctrl.editPost()" ng-if="$ctrl.user"><md-icon class="addicon" md-font-icon="fa fa-plus fa-lg"></md-icon></md-button>
 </div>

@@ -9,9 +9,15 @@
 }
 
 .editpagebtn {
-  border-bottom: groove 3px orange;
+  border-bottom: groove 5px orange;
+}
+.editpagebtn-alt {
+  border-bottom: groove 5px #1976d2;
 }
 
 .editpagebtn:hover {
-    border-bottom: groove 6px orange;
+    border-bottom: groove 8px orange;
+}
+.editpagebtn-alt:hover {
+    border-bottom: groove 8px #1976d2;
 }

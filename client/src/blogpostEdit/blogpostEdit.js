@@ -15,6 +15,8 @@ export class blogPostEditController {
     this.editButtonText = 'Update';
     this.post = {};
     this.loading = false;
+    this.postTheme = sessionStorage.getItem('theme') === 'default' ? 'my-post' : 'my-post-alt';
+    this.btnTheme = sessionStorage.getItem('theme') === 'default' ? 'editpagebtn' : 'editpagebtn-alt';
   }
 
   $onInit() {
@@ -97,5 +99,7 @@ const bindings = {
 };
 
 export default {
-  controller: blogPostEditController, template, bindings
+  controller: blogPostEditController,
+  template,
+  bindings,
 };

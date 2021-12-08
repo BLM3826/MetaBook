@@ -1,6 +1,6 @@
 <md-content layout="row" layout-align="center" layout-padding="" layout-margin="" layout-fill="">
-    <div class="md-content-container edit-form-container my-post" layout="column"
-        layout-padding="" layout-margin="" flex="33" md-whiteframe="3">
+    <div class="md-content-container edit-form-container" layout="column"
+        layout-padding="" layout-margin="" flex="33" md-whiteframe="3" ng-class="{ '{{ $ctrl.postTheme }}': true }">
         <h1 class="md-display-1">{{$ctrl.editHeadline}}</h1>
         <form layout="column" layout-align="space-between" flex ng-submit="$ctrl.submitPost()">
             <div layout="column">
@@ -16,7 +16,7 @@
             </div>
             <div layout="row" layout-align="end">
                 <div flex="75" flex-gt-sm="66" flex-gt-md="60" layout="column" layout-align="end end">
-                    <md-button class="editpagebtn md-raised" type="submit">{{$ctrl.editButtonText}}</md-button>
+                    <md-button class="md-raised" type="submit" ng-class="{ '{{ $ctrl.btnTheme }}': true }">{{$ctrl.editButtonText}}</md-button>
                     <md-button class="md-raised md-warn md-hue-1" ng-click="$ctrl.cancelEdit()">cancel</md-button>
                 </div>
                 <div flex="25" flex-gt-sm="33" flex-gt-md="40" layout="column" layout-align="end end">

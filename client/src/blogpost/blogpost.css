@@ -1,6 +1,10 @@
 .my-post {
-  border-bottom: groove 5px;
-}
+  border-bottom: groove 5px orange; /*accent*/
+} 
+
+.my-post-alt {
+  border-bottom: groove 5px #1976d2; /*accent*/
+} 
 
 .blogpostView__title {
   text-align: center;
