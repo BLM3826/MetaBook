@@ -5,6 +5,7 @@ import '../blogList.css';
 export class BlogpostPreviewComponent {
   constructor() {
     this.postTheme = sessionStorage.getItem('theme') === 'default' ? 'my-post' : 'my-post-alt';
+    this.heightTheme = sessionStorage.getItem('theme') === 'default' ? 9 : 24;
   }
 }
 const bindings = {

@@ -1,9 +1,12 @@
-<md-card class="blogpostPreview" md-whiteframe="{{height}}" flex
-    ng-init="height = 3" ng-mouseenter="height = 9" ng-mouseleave="height = 3" ng-class='{ "{{ $ctrl.postTheme }}": $ctrl.user.username === $ctrl.post.name }'>
+<md-card class="blogpostPreview" md-whiteframe="{{height}}" flex ng-init="height = 3"
+    ng-mouseenter="height = $ctrl.heightTheme" ng-mouseleave="height = 3"
+    ng-class='{ "{{ $ctrl.postTheme }}": $ctrl.user.username === $ctrl.post.name }'>
     <md-card-title class="blogpostPreview__title">
         <md-card-title-text>
             <span class="blogpostPreview__user md-caption">
-                Posted by <span class="md-body-1">{{$ctrl.post.name}}</span>
+                <md-icon md-font-icon="fa fa-user-edit">
+                    Posted by <span class="md-body-1">{{$ctrl.post.name}}</span>
+                </md-icon>
             </span><br>
             <span class="md-headline">{{$ctrl.post.title}}</span>
         </md-card-title-text>

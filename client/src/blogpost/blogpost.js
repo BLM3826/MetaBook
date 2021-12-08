@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable no-console */
 import template from './blogpost.html';
 import './blogpost.css';
@@ -11,11 +12,21 @@ export class BlogpostComp {
     this.$resource = $resource;
     this.$route = $route;
     this.$timeout = $timeout;
+    this.likes = 0;
     this.postTheme = sessionStorage.getItem('theme') === 'default' ? 'my-post' : 'my-post-alt';
+  }
+
+  likePost() {
+    this.likes++;
   }
 
   editPost() {
     this.$location.path(`/edit/${this.post.id}`);
+    this.$mdDialog.hide();
+  }
+
+  morePosts() {
+    this.$location.path(`/${this.post.name}/posts`);
     this.$mdDialog.hide();
   }
 

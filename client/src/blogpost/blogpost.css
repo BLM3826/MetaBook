@@ -1,15 +1,22 @@
 .my-post {
   border-bottom: groove 5px orange; /*accent*/
-} 
+}
 
 .my-post-alt {
   border-bottom: groove 5px #1976d2; /*accent*/
-} 
+}
 
 .blogpostView__title {
   text-align: center;
 }
 
 .blogpostView__content {
-  font-size: x-large;
+border-radius: 5px;}
+
+.blogpostView__content p {
+  margin: 0px;
 }
+
+/* .md-icon:active{
+    color: orange;
+} */

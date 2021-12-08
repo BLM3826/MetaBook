@@ -1,26 +1,40 @@
 <div class="blogpostView md-dialog-content" layout="column" layout-align="space-between"
     ng-class='{ "{{ $ctrl.postTheme }}": $ctrl.user.username === $ctrl.post.name }'>
     <div>
-        <div class="blogpostView__header" layout="row" layout-align="space-around" layout-fill="">
-            <h1 class="blogpostView__title" flex="95">
+        <div class="blogpostView__header" layout="column" layout-align="space-around" layout-fill="">
+            <div layout="row" layout-align="end start">
+                <md-button class="md-icon-button" ng-click="$ctrl.closePost()">
+                    <md-icon class="closeicon" md-font-icon="fa fa-close fa-2x"></md-icon>
+                </md-button>
+            </div>
+            <div class="blogpostView__title md-display-1">
                 {{$ctrl.post.title}}
-            </h1>
-            <md-button class="md-icon-button" ng-click="$ctrl.closePost()">
-                <md-icon class="closeicon" md-font-icon="fa fa-close fa-2x"></md-icon>
-            </md-button>
+            </div>
         </div>
         <hr>
-    </div>
-    <div class="blogpostView__content">
+    </div><br>
+    <div class="blogpostView__content md-title" md-whiteframe="2dp" layout-margin="20" layout-padding="">
         <p ng-bind-html="$ctrl.post.content"></p>
-    </div>
+    </div><br>
     <div class="blogpostView__bottom" layout="row" layout-align="space-between center">
-        <span class="blogpostView__user md-caption">
-            Posted by <span class="usertag md-body-1">{{ $ctrl.post.name }}</span>
+        <span class="blogpostView__user">
+            <md-icon md-font-icon="fa fa-user-edit">
+                Posted by <span class="usertag md-title"
+                    ng-style="{ 'cursor': 'pointer', 'text-decoration': 'underline' }" ng-click="$ctrl.morePosts()">{{
+                    $ctrl.post.name }}</span>
+            </md-icon>
         </span>
         <span class="btns" ng-if="$ctrl.user.username === $ctrl.post.name">
             <md-button class="deletebtn md-raised md-warn md-hue-1" ng-click="$ctrl.deletePost()">delete</md-button>
             <md-button class="editbtn md-raised md-primary" ng-click="$ctrl.editPost()">EDIT</md-button>
+            <!-- like button -->
+        </span>
+        <span ng-if="$ctrl.user.username !== $ctrl.post.name">
+            <md-button class="likebtn md-icon-button md-primary"
+                ng-click=$ctrl.likePost()>
+                <md-icon md-font-icon="fa fa-thumbs-up fa-2x"></md-icon>
+            </md-button>
+            <span class="likecount">{{ $ctrl.likes }}</span>
         </span>
     </div>
 </div>
