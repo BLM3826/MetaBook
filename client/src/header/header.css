@@ -1,0 +1,10 @@
+.imagelogo {
+  width: 120px;
+  height: auto;
+  border-radius: 15px;
+}
+
+.usernameSecret {
+  cursor: pointer;
+  text-decoration: underline;
+}

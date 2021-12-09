@@ -44,59 +44,66 @@ const mainModule = angular
   .component('blogList', bloglist)
   .component('blogpostPreview', blogpostPreview)
   .component('blogFooter', blogfooter)
-  .config(($locationProvider, $routeProvider) => {
-    $locationProvider.html5Mode(true);
-    $routeProvider
-      .when('/', {
-        template:
-          '<blog-list flex layout="column" layout-align="space-between" user="$ctrl.user"></blog-list>',
-      })
-      .when('/:username/posts', {
-        template:
-          '<blog-list flex layout="column" layout-align="space-between" layout-fill="" user="$ctrl.user"></blog-list>',
-      })
-      .when('/edit/:postid', {
-        template:
-          '<blogpost-edit flex layout="column" layout-align="space-between" user="$ctrl.user"></blogpost-edit>',
-      })
-      .when('/add', {
-        template:
-          '<blogpost-edit flex layout="column" layout-align="space-between" user="$ctrl.user"></blogpost-edit>',
-      })
-      .otherwise('/');
-  })
-  .config(($mdThemingProvider) => {
-    $mdThemingProvider
-      .theme('default')
-      .primaryPalette('blue', {
-        default: '700',
-      })
-      .accentPalette('orange')
-      .warnPalette('red')
-      .backgroundPalette('grey', {
-        'hue-2': '700'
-      });
+  .config(
+    (
+      $locationProvider,
+      $routeProvider,
+      $mdThemingProvider,
+      $mdIconProvider,
+      $cookiesProvider
+    ) => {
+      $locationProvider.html5Mode(true);
+      $routeProvider
+        .when('/', {
+          template:
+            '<blog-list layout="column" layout-align="space-between" user="$ctrl.user"></blog-list>',
+        })
+        .when('/:username/posts', {
+          template:
+            '<blog-list layout="column" layout-align="space-between" layout-fill="" user="$ctrl.user"></blog-list>',
+        })
+        .when('/edit/:postid', {
+          template:
+            '<blogpost-edit layout="column" layout-align="space-between" user="$ctrl.user"></blogpost-edit>',
+        })
+        .when('/add', {
+          template:
+            '<blogpost-edit layout="column" layout-align="space-between" user="$ctrl.user"></blogpost-edit>',
+        })
+        .otherwise('/');
 
-    $mdThemingProvider
-      .theme('dark')
-      .primaryPalette('orange')
-      .accentPalette('blue', {
-        default: '700',
-      })
-      .warnPalette('red')
-      .backgroundPalette('grey', {
-        default: '900',
-        'hue-1': '800',
-        'hue-2': '400',
-      })
-      .dark();
-  })
-  .config(($mdIconProvider) => {
-    $mdIconProvider.defaultFontSet('FontAwesome').fontSet('fa', 'FontAwesome');
-  })
-  .config(($cookiesProvider) => {
-    $cookiesProvider.defaults.path = '/';
-  })
+      $mdThemingProvider
+        .theme('default')
+        .primaryPalette('blue', {
+          default: '700',
+        })
+        .accentPalette('orange')
+        .warnPalette('red')
+        .backgroundPalette('grey', {
+          'hue-2': '700',
+        });
+
+      $mdThemingProvider
+        .theme('dark')
+        .primaryPalette('orange')
+        .accentPalette('blue', {
+          default: '700',
+        })
+        .warnPalette('red')
+        .backgroundPalette('grey', {
+          default: '900',
+          'hue-1': '800',
+          'hue-2': '400',
+        })
+        .dark();
+
+      $mdIconProvider
+        .defaultFontSet('FontAwesome')
+        .fontSet('fa', 'FontAwesome');
+
+      $cookiesProvider.defaults.path = '/';
+    }
+  )
   .run(($rootScope, $location, $cookies) => {
     $rootScope.$on('$routeChangeStart', () => {
       if (!$cookies.getObject('user')) {

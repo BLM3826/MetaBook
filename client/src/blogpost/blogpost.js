@@ -6,12 +6,13 @@ import './blogpost.css';
 export class BlogpostComp {
   /* @ngInject */
 
-  constructor($mdDialog, $location, $resource, $route, $timeout) {
+  constructor($mdDialog, $location, $resource, $route, $timeout, $mdToast) {
     this.$mdDialog = $mdDialog;
     this.$location = $location;
     this.$resource = $resource;
     this.$route = $route;
     this.$timeout = $timeout;
+    this.$mdToast = $mdToast;
     this.likes = 0;
     this.postTheme = sessionStorage.getItem('theme') === 'default' ? 'my-post' : 'my-post-alt';
   }
@@ -38,6 +39,13 @@ export class BlogpostComp {
         this.$timeout(() => {
           this.$mdDialog.hide();
           this.$route.reload();
+          this.$mdToast.show(
+            this.$mdToast
+              .simple()
+              .textContent('Post deleted successfully!')
+              .position('top right')
+              .hideDelay(3000)
+          );
         }, 1000);
       });
   }
@@ -53,6 +61,7 @@ BlogpostComp.$inject = [
   '$resource',
   '$route',
   '$timeout',
+  '$mdToast',
 ];
 
 const bindings = {

@@ -11,12 +11,21 @@
 }
 
 .blogpostView__content {
-border-radius: 5px;}
+  border-radius: 5px;
+}
 
 .blogpostView__content p {
   margin: 0px;
 }
 
-/* .md-icon:active{
-    color: orange;
-} */
+.usertag {
+  cursor: "pointer";
+  text-decoration: "underline";
+}
+
+.likeicon:active {
+  color: orange !important;
+}
+.likeicon-alt:active {
+  color: #1976d2 !important;
+}

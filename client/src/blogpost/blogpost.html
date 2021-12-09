@@ -19,8 +19,7 @@
     <div class="blogpostView__bottom" layout="row" layout-align="space-between center">
         <span class="blogpostView__user">
             <md-icon md-font-icon="fa fa-user-edit">
-                Posted by <span class="usertag md-title"
-                    ng-style="{ 'cursor': 'pointer', 'text-decoration': 'underline' }" ng-click="$ctrl.morePosts()">{{
+                Posted by <span class="usertag md-title" ng-click="$ctrl.morePosts()">{{
                     $ctrl.post.name }}</span>
             </md-icon>
         </span>
@@ -30,9 +29,9 @@
             <!-- like button -->
         </span>
         <span ng-if="$ctrl.user.username !== $ctrl.post.name">
-            <md-button class="likebtn md-icon-button md-primary"
-                ng-click=$ctrl.likePost()>
-                <md-icon md-font-icon="fa fa-thumbs-up fa-2x"></md-icon>
+            <md-button class="likebtn md-icon-button md-primary" ng-click=$ctrl.likePost()>
+                <md-icon class="likeicon" ng-class="{ 'likeicon-alt': $ctrl.postTheme === 'my-post-alt' }"
+                    md-font-icon="fa fa-thumbs-up fa-2x"></md-icon>
             </md-button>
             <span class="likecount">{{ $ctrl.likes }}</span>
         </span>

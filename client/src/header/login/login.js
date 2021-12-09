@@ -5,11 +5,11 @@ import template from './login.html';
 
 export class LoginController {
   /* @ngInject */
-  constructor($resource, $mdDialog, $cookies) {
+  constructor($resource, $mdDialog, $cookies, $mdToast) {
     this.$resource = $resource;
     this.$mdDialog = $mdDialog;
     this.$cookies = $cookies;
-    this.check = ' succeded!!!';
+    this.$mdToast = $mdToast;
     this.isLogin = true;
     this.submitName = 'Login';
     this.toggleName = 'Sign up';
@@ -27,78 +27,71 @@ export class LoginController {
   // that will be called from the login.html and will be toggled by isLogin
 
   login() {
-    console.log('login button clicked');
-
+    const { username, password } = this.user || {};
     if (this.isLogin) {
-      if (this.user.username === 'admin' && this.user.password === 'admin') {
+      if (username === 'admin' && password === 'admin') {
         this.$cookies.putObject('user', this.user);
         this.$mdDialog.hide(this.user);
       } else {
-        this.$resource(
-          '/api/login',
-          {},
-          {
-            login: {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              isArray: false,
-              params: {
-                username: '@username',
-                password: '@password',
-              },
-            },
-          }
-        )
-          .login({
-            username: this.user.username,
-            password: this.user.password,
-          })
-          .$promise.then((response) => {
-            console.log(response);
+        this.$resource('/api/login')
+          .save({ username, password })
+          .$promise.then(() => {
+            // make a toast
+            this.$mdToast.show(
+              this.$mdToast
+                .simple()
+                .textContent(`Welcome ${username}`)
+                .position('top right')
+                .hideDelay(3000)
+            );
             // store the user in cookie as json
             this.$cookies.putObject('user', this.user);
             this.$mdDialog.hide(this.user);
           })
           .catch((err) => {
             console.error(err);
-            alert('Error logging in please try again');
+            this.$mdToast.show(
+              this.$mdToast
+                .simple()
+                .textContent('Error logging in please try again')
+                .position('top right')
+                .hideDelay(3000)
+            );
           });
       }
     } else {
-      this.$resource(
-        '/api/register',
-        {},
-        {
-          register: {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            isArray: false,
-            params: {
-              username: '@username',
-              password: '@password',
-            },
-          },
-        }
-      )
-        .register({
-          username: this.user.username,
-          password: this.user.password,
-        })
-        .$promise.then((response) => {
-          console.log(response);
+      this.$resource('/api/register')
+        .save({ username, password })
+        .$promise.then(() => {
+          // make a toast
+          this.$mdToast.show(
+            this.$mdToast
+              .simple()
+              .textContent('Account created successfully')
+              .position('top right')
+              .hideDelay(3000)
+          );
           this.$cookies.putObject('user', this.user);
           this.$mdDialog.hide(this.user);
         })
         .catch((err) => {
           console.error(err);
           if (err.status === 401) {
-            alert(`User ${err.data}`);
+            this.$mdToast.show(
+              this.$mdToast
+                .simple()
+                .textContent(`User ${err.data}`)
+                .position('top right')
+                .hideDelay(3000)
+            );
           } else {
-            alert('Error registering please try again');
+            this.$mdToast.show(
+              this.$mdToast
+                .simple()
+                .textContent('Error logging in please try again')
+                .position('top right')
+                .hideDelay(3000)
+            );
           }
         });
     }
@@ -110,6 +103,6 @@ export class LoginController {
   /** ***************************end-my-functions*************************** */
 }
 
-LoginController.$inject = ['$resource', '$mdDialog', '$cookies'];
+LoginController.$inject = ['$resource', '$mdDialog', '$cookies', '$mdToast'];
 
 export default { controller: LoginController, template };

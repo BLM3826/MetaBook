@@ -4,12 +4,13 @@ import template from './blogpostEdit.html';
 import './blogpostEdit.css';
 
 export class blogPostEditController {
-  constructor($location, $resource, $route, $routeParams, $timeout) {
+  constructor($location, $resource, $route, $routeParams, $timeout, $mdToast) {
     this.$location = $location;
     this.$resource = $resource;
     this.$route = $route;
     this.$routeParams = $routeParams;
     this.$timeout = $timeout;
+    this.$mdToast = $mdToast;
     this.postid = $routeParams.postid;
     this.editHeadline = 'Edit your Metapost';
     this.editButtonText = 'Update';
@@ -50,13 +51,19 @@ export class blogPostEditController {
     this.$resource('/api/blogposts')
       .save(this.post, () => {
         console.log(this.post);
-        console.log('added');
       })
       // timeout to wait for the server to add the post
       .$promise.then(() => {
         this.loading = true;
         this.$timeout(() => {
           this.$location.path('/');
+          this.$mdToast.show(
+            this.$mdToast
+              .simple()
+              .textContent('Post added successfully!')
+              .position('top right')
+              .hideDelay(3000)
+          );
         }, 2000);
       });
   }
@@ -76,6 +83,13 @@ export class blogPostEditController {
         this.loading = true;
         this.$timeout(() => {
           this.$location.path('/');
+          this.$mdToast.show(
+            this.$mdToast
+              .simple()
+              .textContent('Post edited successfully!')
+              .position('top right')
+              .hideDelay(3000)
+          );
         }, 2000);
       });
   }
@@ -91,6 +105,7 @@ blogPostEditController.$inject = [
   '$route',
   '$routeParams',
   '$timeout',
+  '$mdToast'
 ];
 
 const bindings = {

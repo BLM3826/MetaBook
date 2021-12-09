@@ -1,5 +1,4 @@
-<blog-header user="$ctrl.user" on-user-change="$ctrl.userChanged(user)" theme="$ctrl.theme" on-theme-change="$ctrl.themeChanged(theme)" md-theme="$ctrl.theme"></blog-header>
-<div layout="column" layout-align="space-between" flex md-theme="$ctrl.theme" md-colors="{background: 'background'}">
-    <ng-view layout="column" ></ng-view>
-    <blog-footer></blog-footer>
-</div>
+<blog-header user="$ctrl.user" on-user-change="$ctrl.userChanged(user)" theme="$ctrl.theme"
+    on-theme-change="$ctrl.themeChanged(theme)" md-theme="$ctrl.theme"></blog-header>
+<ng-view md-theme="$ctrl.theme" md-colors="{background: 'background'}"></ng-view>
+<blog-footer></blog-footer>
