@@ -1,3 +1,7 @@
+.header-stuff {
+  border-bottom: 1px solid;
+}
+
 .imagelogo {
   width: 120px;
   height: auto;
@@ -7,4 +11,8 @@
 .usernameSecret {
   cursor: pointer;
   text-decoration: underline;
+}
+
+.profileicon {
+text-align: right;
 }

@@ -15,6 +15,13 @@ export class homeController {
   $onInit() {
     // get the user from the cookies
     this.user = this.$cookies.getObject('user');
+    this.$mdToast.show(
+      this.$mdToast
+        .simple()
+        .textContent(`${this.theme} mode`)
+        .position('top right')
+        .hideDelay(500)
+    );
   }
 
   userChanged(user) {
@@ -25,13 +32,6 @@ export class homeController {
     this.theme = theme;
     sessionStorage.setItem('theme', this.theme);
     this.$window.location.reload();
-    this.$mdToast.show(
-      this.$mdToast
-        .simple()
-        .textContent(`${this.theme} mode`)
-        .position('top right')
-        .hideDelay(1000)
-    );
   }
 }
 homeController.$inject = ['$log', '$cookies', '$window', '$mdToast'];
