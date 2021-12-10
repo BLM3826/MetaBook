@@ -2,6 +2,7 @@
 // import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import template from './blogpostEdit.html';
 import './blogpostEdit.css';
+import '../../node_modules/textangular/dist/textAngular.css';
 
 export class blogPostEditController {
   constructor($location, $resource, $route, $routeParams, $timeout, $mdToast) {

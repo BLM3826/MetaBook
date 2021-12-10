@@ -6,6 +6,8 @@ import ngResource from 'angular-resource';
 import 'angular-cookies';
 import 'angular-material';
 import 'angular-material/angular-material.css';
+import 'rangy/lib/rangy-core';
+import 'rangy/lib/rangy-selectionsaverestore';
 import '@fortawesome/fontawesome-free/css/regular.css';
 import '@fortawesome/fontawesome-free/css/solid.css';
 import '@fortawesome/fontawesome-free/css/brands.css';
@@ -13,6 +15,7 @@ import '@fortawesome/fontawesome-free/css/fontawesome.css';
 import '@fortawesome/fontawesome-free/css/v4-shims.css';
 import 'textangular/dist/textAngular.css';
 import 'textangular/dist/textAngular-sanitize.min';
+import 'textangular/dist/textAngularSetup';
 import 'textangular/dist/textAngular.min';
 import service from './service';
 import home from './home/home';
@@ -30,7 +33,7 @@ const mainModule = angular
     ngResource,
     'ngCookies',
     'ngMaterial',
-    'textAngular',
+    'textAngular'
   ])
   .config(() => {
     angular.lowercase = angular.$$lowercase;

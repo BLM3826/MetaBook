@@ -6,12 +6,11 @@
             <div layout="column">
                 <md-input-container class="md-block">
                     <label for="title">Title</label>
-                    <input type="text" class="form-control" id="title" ng-model="$ctrl.post.title">
+                    <input type="text" id="title" ng-model="$ctrl.post.title">
                 </md-input-container>
                 <md-input-container class="md-block">
-                    <!-- <label for="content">Content</label>
-                <textarea class="form-control" id="content" ng-model="$ctrl.post.content" rows="3"></textarea> -->
-                    <text-angular class="form-control" id="content" ng-model="$ctrl.post.content"></text-angular>
+                    <label for="content">Content</label><br>
+                    <div text-angular="text-angular" id="content" ng-model="$ctrl.post.content"></div>
                 </md-input-container>
             </div>
             <div layout="row" layout-align="end">

@@ -8,7 +8,7 @@ export class homeController {
     this.$cookies = $cookies;
     this.$window = $window;
     this.$mdToast = $mdToast;
-    this.user = null;
+    this.user = 'null';
     this.theme = sessionStorage.getItem('theme') || 'default';
   }
 
