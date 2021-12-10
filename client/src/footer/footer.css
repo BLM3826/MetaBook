@@ -1,3 +1,8 @@
-footer, footer div{
-    padding-bottom: 0% !important;
+footer,
+footer div {
+  padding-bottom: 0% !important;
+}
+
+hr {
+  border: inset 1px !important;
 }
