@@ -6,15 +6,26 @@ import './blogpost.css';
 export class BlogpostComp {
   /* @ngInject */
 
-  constructor($mdDialog, $location, $resource, $route, $timeout, $mdToast) {
+  constructor(
+    $mdDialog,
+    $location,
+    $resource,
+    $route,
+    $timeout,
+    $mdToast,
+    $log,
+    appService
+  ) {
     this.$mdDialog = $mdDialog;
     this.$location = $location;
     this.$resource = $resource;
     this.$route = $route;
     this.$timeout = $timeout;
     this.$mdToast = $mdToast;
+    this.$log = $log;
+    this.appService = appService;
     this.likes = 0;
-    this.postTheme = sessionStorage.getItem('theme') === 'default' ? 'my-post' : 'my-post-alt';
+    this.postTheme = !this.appService.isDark() ? 'my-post' : 'my-post-alt';
   }
 
   likePost() {
@@ -32,22 +43,7 @@ export class BlogpostComp {
   }
 
   deletePost() {
-    // delete post from server
-    this.$resource('/api/blogposts/:id')
-      .delete({ id: this.post.id })
-      .$promise.then(() => {
-        this.$timeout(() => {
-          this.$mdDialog.hide();
-          this.$route.reload();
-          this.$mdToast.show(
-            this.$mdToast
-              .simple()
-              .textContent('Post deleted successfully!')
-              .position('top right')
-              .hideDelay(3000)
-          );
-        }, 1000);
-      });
+    this.appService.deletePost(this.post.id);
   }
 
   closePost() {
@@ -62,6 +58,8 @@ BlogpostComp.$inject = [
   '$route',
   '$timeout',
   '$mdToast',
+  '$log',
+  'appService',
 ];
 
 const bindings = {

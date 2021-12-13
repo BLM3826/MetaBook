@@ -1,6 +1,6 @@
 <md-content flex layout="row" layout-align="center" layout-padding="" layout-margin="" layout-fill="">
-    <div class="md-content-container edit-form-container" layout="column"
-        layout-padding="" layout-margin="" flex md-whiteframe="3" ng-class="{ '{{ $ctrl.postTheme }}': true }">
+    <div class="md-content-container edit-form-container" layout="column" layout-padding="" layout-margin="" flex
+        md-whiteframe="3" ng-class="{ '{{ $ctrl.postTheme }}': true }">
         <h1 class="md-display-1">{{$ctrl.editHeadline}}</h1>
         <form layout="column" layout-align="space-between" flex ng-submit="$ctrl.submitPost()">
             <div layout="column">
@@ -13,15 +13,13 @@
                     <div text-angular="text-angular" id="content" ng-model="$ctrl.post.content"></div>
                 </md-input-container>
             </div>
-            <div layout="row" layout-align="end end">
-                <div flex="75" flex-gt-sm="66" flex-gt-md="60" layout="column" layout-align="end end">
-                    <md-button class="md-raised" type="submit" ng-class="{ '{{ $ctrl.btnTheme }}': true }">{{$ctrl.editButtonText}}</md-button>
-                    <md-button class="md-raised md-warn md-hue-1" ng-click="$ctrl.cancelEdit()">cancel</md-button>
-                </div>
-                <div flex="25" flex-gt-sm="33" flex-gt-md="40" layout="column" layout-align="end end" layout-padding="" layout-margin="">
-                    <md-progress-circular md-mode="indeterminate" class="md-accent" ng-if=$ctrl.loading>
+            <div layout="row" layout-align="center">
+                <md-button layout="row" layout-align="space-around center" class="md-raised" type="submit" ng-class="{ '{{ $ctrl.btnTheme }}': true }">
+                    {{$ctrl.editButtonText}}
+                    <md-progress-circular md-mode="indeterminate" md-diameter="20px" class="md-accent" ng-if=$ctrl.loading>
                     </md-progress-circular>
-                </div>
+                </md-button>
+                <md-button class="md-raised md-warn md-hue-1" ng-click="$ctrl.cancelEdit()">cancel</md-button>
             </div>
         </form>
     </div>

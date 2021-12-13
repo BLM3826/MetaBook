@@ -3,9 +3,10 @@ import template from './blogpostPreview.html';
 import '../blogList.css';
 
 export class BlogpostPreviewComponent {
-  constructor() {
-    this.postTheme = sessionStorage.getItem('theme') === 'default' ? 'my-post' : 'my-post-alt';
-    this.heightTheme = sessionStorage.getItem('theme') === 'default' ? 9 : 24;
+  constructor(appService) {
+    this.appService = appService;
+    this.postTheme = !this.appService.isDark() ? 'my-post' : 'my-post-alt';
+    this.heightTheme = !this.appService.isDark() ? 9 : 24;
   }
 }
 const bindings = {
@@ -13,6 +14,6 @@ const bindings = {
   user: '<',
 };
 
-BlogpostPreviewComponent.$inject = ['$log'];
+BlogpostPreviewComponent.$inject = ['appService'];
 
 export default { controller: BlogpostPreviewComponent, template, bindings };

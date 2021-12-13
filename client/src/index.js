@@ -59,11 +59,11 @@ const mainModule = angular
       $routeProvider
         .when('/', {
           template:
-            '<blog-list layout="column" layout-align="space-between" user="$ctrl.user"></blog-list>',
+            '<blog-list flex layout="row" user="$ctrl.user"></blog-list>',
         })
         .when('/:username/posts', {
           template:
-            '<blog-list layout="column" layout-align="space-between" layout-fill="" user="$ctrl.user"></blog-list>',
+            '<blog-list flex layout="row" layout-fill="" user="$ctrl.user"></blog-list>',
         })
         .when('/edit/:postid', {
           template:

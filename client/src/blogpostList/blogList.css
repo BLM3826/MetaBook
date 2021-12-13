@@ -2,23 +2,28 @@
   border-radius: 5px;
 }
 
+.blogListDiv {
+  overflow-y: auto;
+}
+
 .stickybtn {
   position: sticky;
   bottom: 10px;
+  background-color: rgba(255, 255, 255, 0) !important;
 }
 
 .md-warn:hover,
 .md-accent:hover,
 .md-primary:hover,
 .addbtn:hover .addicon {
-  color: #fff !important; 
+  color: #fff !important;
   transition: 0.5s;
 }
 
 .accent-alt:hover,
 .accent-alt:hover .addicon {
-  color: #000 !important; 
-    transition: 0.5s;
+  color: #000 !important;
+  transition: 0.5s;
 }
 
 .togglelog:hover,

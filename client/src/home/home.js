@@ -3,11 +3,12 @@ import template from './home.html';
 import './home.css';
 
 export class homeController {
-  constructor($log, $cookies, $window, $mdToast) {
+  constructor($log, $cookies, $window, $mdToast, appService) {
     this.$log = $log;
     this.$cookies = $cookies;
     this.$window = $window;
     this.$mdToast = $mdToast;
+    this.appService = appService;
     this.user = null;
     this.theme = sessionStorage.getItem('theme') || 'default';
   }
@@ -15,13 +16,7 @@ export class homeController {
   $onInit() {
     // get the user from the cookies
     this.user = this.$cookies.getObject('user');
-    this.$mdToast.show(
-      this.$mdToast
-        .simple()
-        .textContent(`${this.theme} mode`)
-        .position('top right')
-        .hideDelay(500)
-    );
+    this.appService.displayToastMessage(`${this.theme} mode`);
   }
 
   userChanged(user) {
@@ -34,6 +29,6 @@ export class homeController {
     this.$window.location.reload();
   }
 }
-homeController.$inject = ['$log', '$cookies', '$window', '$mdToast'];
+homeController.$inject = ['$log', '$cookies', '$window', '$mdToast', 'appService'];
 
 export default { controller: homeController, template };

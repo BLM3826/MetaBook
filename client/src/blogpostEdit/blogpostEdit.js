@@ -5,20 +5,29 @@ import './blogpostEdit.css';
 import '../../node_modules/textangular/dist/textAngular.css';
 
 export class blogPostEditController {
-  constructor($location, $resource, $route, $routeParams, $timeout, $mdToast) {
+  constructor(
+    $location,
+    $resource,
+    $route,
+    $routeParams,
+    $timeout,
+    $mdToast,
+    appService
+  ) {
     this.$location = $location;
     this.$resource = $resource;
     this.$route = $route;
     this.$routeParams = $routeParams;
     this.$timeout = $timeout;
     this.$mdToast = $mdToast;
+    this.appService = appService;
     this.postid = $routeParams.postid;
     this.editHeadline = 'Edit your Metapost';
     this.editButtonText = 'Update';
     this.post = {};
     this.loading = false;
-    this.postTheme = sessionStorage.getItem('theme') === 'default' ? 'my-post' : 'my-post-alt';
-    this.btnTheme = sessionStorage.getItem('theme') === 'default' ? 'editpagebtn' : 'editpagebtn-alt';
+    this.postTheme = !this.appService.isDark() ? 'my-post' : 'my-post-alt';
+    this.btnTheme = !this.appService.isDark() ? 'editpagebtn' : 'editpagebtn-alt';
   }
 
   $onInit() {
@@ -27,72 +36,21 @@ export class blogPostEditController {
       this.editHeadline = 'Make a Metapost';
       this.editButtonText = 'Add';
     } else {
-      this.getPostById(this.postid);
+      this.post = this.appService.getPostById(this.postid);
     }
-  }
-
-  // get the post data from the server by id
-  getPostById(id) {
-    this.$resource('/api/blogposts/:id').get({ id }, (post) => {
-      this.post = post;
-    });
   }
 
   submitPost() {
     if (this.$location.path() === '/add') {
-      this.addPost();
+      this.post.name = this.user.username;
+      this.appService.addPost(this.post).then(() => {
+        this.loading = true;
+      });
     } else {
-      this.updatePost();
+      this.appService.updatePost(this.post, this.postid).then(() => {
+        this.loading = true;
+      });
     }
-  }
-
-  addPost() {
-    this.post.name = this.user.username;
-    console.log(this.post);
-    this.$resource('/api/blogposts')
-      .save(this.post, () => {
-        console.log(this.post);
-      })
-      // timeout to wait for the server to add the post
-      .$promise.then(() => {
-        this.loading = true;
-        this.$timeout(() => {
-          this.$location.path('/');
-          this.$mdToast.show(
-            this.$mdToast
-              .simple()
-              .textContent('Post added successfully!')
-              .position('top right')
-              .hideDelay(3000)
-          );
-        }, 2000);
-      });
-  }
-
-  updatePost() {
-    this.$resource(
-      '/api/blogposts/:id',
-      { id: this.postid },
-      { update: { method: 'PUT' } }
-    )
-      .update(this.post, () => {
-        console.log(this.post);
-        console.log('updated');
-      })
-      // timeout to wait for the server to update the post
-      .$promise.then(() => {
-        this.loading = true;
-        this.$timeout(() => {
-          this.$location.path('/');
-          this.$mdToast.show(
-            this.$mdToast
-              .simple()
-              .textContent('Post edited successfully!')
-              .position('top right')
-              .hideDelay(3000)
-          );
-        }, 2000);
-      });
   }
 
   cancelEdit() {
@@ -106,11 +64,11 @@ blogPostEditController.$inject = [
   '$route',
   '$routeParams',
   '$timeout',
-  '$mdToast'
+  '$mdToast',
+  'appService',
 ];
 
 const bindings = {
-  //   post: '<',
   user: '<',
 };
 

@@ -6,11 +6,12 @@ import template from './login.html';
 
 export class LoginController {
   /* @ngInject */
-  constructor($resource, $mdDialog, $cookies, $mdToast, appService) {
+  constructor($resource, $mdDialog, $cookies, $mdToast, $log, appService) {
     this.$resource = $resource;
     this.$mdDialog = $mdDialog;
     this.$cookies = $cookies;
     this.$mdToast = $mdToast;
+    this.$log = $log;
     this.appService = appService;
     this.isLogin = true;
     this.submitName = 'Login';
@@ -29,7 +30,9 @@ export class LoginController {
   // that will be called from the login.html and will be toggled by isLogin
 
   login() {
-    this.appService.login(this.user, this.isLogin);
+    this.appService.login(this.user, this.isLogin).then((user) => {
+      this.user = user;
+    });
   }
 
   closePost() {
@@ -38,6 +41,6 @@ export class LoginController {
   /** ***************************end-my-functions*************************** */
 }
 
-LoginController.$inject = ['$resource', '$mdDialog', '$cookies', '$mdToast', 'appService'];
+LoginController.$inject = ['$resource', '$mdDialog', '$cookies', '$mdToast', '$log', 'appService'];
 
 export default { controller: LoginController, template };
