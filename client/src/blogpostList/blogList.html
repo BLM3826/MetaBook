@@ -1,6 +1,6 @@
 <div flex layout=column>
     <h1 class="md-display-3" ng-if="$ctrl.noPosts">No Posts by this user yet!</h1>
-    <div class="blogListDiv" flex layout="row" layout-wrap="">
+    <div class="blogListDiv" flex layout="row" layout-wrap="" ng-class="{ 'blogListDiv-alt': $ctrl.theme === 'dark' }">
         <blogpost-preview post="post" user="$ctrl.user" flex="100" flex-gt-xs="50" flex-gt-sm="33"
             ng-repeat="post in $ctrl.posts" ng-click="$ctrl.openPost(post, $event)" layout="row"></blogpost-preview>
     </div>

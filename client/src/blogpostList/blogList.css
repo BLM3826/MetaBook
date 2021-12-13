@@ -6,6 +6,41 @@
   overflow-y: auto;
 }
 
+/* width */
+.blogListDiv::-webkit-scrollbar {
+  width: 10px;
+  
+}
+
+/* Track */
+.blogListDiv::-webkit-scrollbar-track {
+  background: #1976d2;  
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.blogListDiv-alt::-webkit-scrollbar-track {
+  background: orange;  
+  border-radius: 5px;
+}
+
+/* Handle */
+.blogListDiv::-webkit-scrollbar-thumb {
+  background: orange;
+  border-radius: 5px;
+}
+.blogListDiv-alt::-webkit-scrollbar-thumb {
+  background: #1976d2;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+.blogListDiv::-webkit-scrollbar-thumb:hover {
+  background: #ff6d00;
+}
+.blogListDiv-alt::-webkit-scrollbar-thumb:hover {
+  background: #2962ff;
+}
+
 .stickybtn {
   position: sticky;
   bottom: 10px;
