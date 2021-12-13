@@ -2,15 +2,16 @@
 /* eslint-disable no-console */
 
 import template from './login.html';
-import { Service } from '../../service';
+// import { Service } from '../../service';
 
 export class LoginController {
   /* @ngInject */
-  constructor($resource, $mdDialog, $cookies, $mdToast) {
+  constructor($resource, $mdDialog, $cookies, $mdToast, appService) {
     this.$resource = $resource;
     this.$mdDialog = $mdDialog;
     this.$cookies = $cookies;
     this.$mdToast = $mdToast;
+    this.appService = appService;
     this.isLogin = true;
     this.submitName = 'Login';
     this.toggleName = 'Sign up';
@@ -28,7 +29,7 @@ export class LoginController {
   // that will be called from the login.html and will be toggled by isLogin
 
   login() {
-    Service.login(this.user, this.isLogin);
+    this.appService.login(this.user, this.isLogin);
   }
 
   closePost() {
@@ -37,6 +38,6 @@ export class LoginController {
   /** ***************************end-my-functions*************************** */
 }
 
-LoginController.$inject = ['$resource', '$mdDialog', '$cookies', '$mdToast'];
+LoginController.$inject = ['$resource', '$mdDialog', '$cookies', '$mdToast', 'appService'];
 
 export default { controller: LoginController, template };

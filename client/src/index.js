@@ -38,7 +38,7 @@ const mainModule = angular
   .config(() => {
     angular.lowercase = angular.$$lowercase;
   })
-  .service('service', service)
+  .service('appService', service)
   .component('appHome', home)
   .component('blogHeader', header)
   .component('blogLogin', login)

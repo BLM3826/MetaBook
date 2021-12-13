@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
-export class Service {
+export default class Service {
   /* @ngInject */
   constructor($resource, $mdDialog, $mdToast, $cookies) {
-    this.resource = $resource;
-    this.mdDialog = $mdDialog;
-    this.mdToast = $mdToast;
-    this.cookies = $cookies;
+    this.$resource = $resource;
+    this.$mdDialog = $mdDialog;
+    this.$mdToast = $mdToast;
+    this.$cookies = $cookies;
   }
 
   login(data, isLogin) {
@@ -80,6 +80,6 @@ export class Service {
   }
 }
 // inject dependencies
-Service.$inject = ['$resource', '$cookies', '$mdDialog', '$mdToast'];
+Service.$inject = ['$resource', '$mdDialog', '$mdToast', '$cookies'];
 
-export default { service: 'Service', name: 'service' };
+// export default { service: 'Service', name: 'service' };
