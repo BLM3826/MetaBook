@@ -36,7 +36,9 @@ export class blogPostEditController {
       this.editHeadline = 'Make a Metapost';
       this.editButtonText = 'Add';
     } else {
-      this.post = this.appService.getPostById(this.postid);
+      this.appService.getPostById(this.postid).then((post) => {
+        this.post = post;
+      });
     }
   }
 

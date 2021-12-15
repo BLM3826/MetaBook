@@ -4,30 +4,32 @@ import postTemplate from '../blogpost/blogpostTemplate.html';
 import './blogList.css';
 
 export class blogListController {
-  constructor($mdDialog, $log, $resource, $location, $routeParams) {
+  constructor($mdDialog, $log, $resource, $location, $routeParams, appService) {
     this.posts = [];
     this.$mdDialog = $mdDialog;
     this.$log = $log;
     this.$resource = $resource;
     this.$location = $location;
     this.$routeParams = $routeParams;
+    this.appService = appService;
     this.noPosts = false;
     this.theme = sessionStorage.getItem('theme');
   }
 
   $onInit() {
-    this.pagename = this.$routeParams.username ? `user/${this.$routeParams.username}` : '';
-    this.getBlogPosts();
-  }
-
-  getBlogPosts() {
-    this.$resource(
-      `/api/blogposts/${this.pagename}`
-    ).query()
-      .$promise.then((res) => {
+    this.pagename = this.$routeParams.username
+      ? `user/${this.$routeParams.username}`
+      : '';
+    this.appService
+      .getBlogPosts(this.pagename)
+      .then((res) => {
         this.posts = res;
         this.noPosts = this.posts.length === 0;
+      })
+      .catch((err) => {
+        this.$log.error(err);
       });
+    this.$log.info('blogListController');
   }
 
   openPost(post, ev) {
@@ -53,7 +55,14 @@ export class blogListController {
   }
 }
 
-blogListController.$inject = ['$mdDialog', '$log', '$resource', '$location', '$routeParams'];
+blogListController.$inject = [
+  '$mdDialog',
+  '$log',
+  '$resource',
+  '$location',
+  '$routeParams',
+  'appService',
+];
 
 const bindings = {
   user: '<',

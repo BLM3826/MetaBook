@@ -75,21 +75,17 @@ export default class Service {
       });
   }
 
-  /*   bloglist functionality in bloglist.js
-      getBlogPosts(pagename) {
-        this.$resource(
-          `/api/blogposts/${pagename}`
-        ).query()
-          .$promise.then((res) => {
-            this.posts = res;
-            this.$log.info(this.posts);
-            return this.posts;
-          });
-     } */
+  // bloglist functionality in bloglist.js
+  getBlogPosts(pagename) {
+    return this.$resource(
+      `/api/blogposts/${pagename}`
+    ).query()
+      .$promise;
+  }
 
   // editpage functionality
   getPostById(id) {
-    return this.$resource('/api/blogposts/:id').get({ id }, post => post);
+    return this.$resource('/api/blogposts/:id').get({ id }).$promise;
   }
 
   addPost(post) {
