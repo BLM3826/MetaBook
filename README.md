@@ -1,6 +1,7 @@
 # <img src="client/src/assets/images/metabook-logo2.png" alt="metabooklogo" style="width:50px;"/> MetaBook 
 ### A Single Page Web App Blog built on AngularJS
-### Other technologies: 
+*with [Centaur Analytics](https://centaur.ag/) developers*
+### Other technologies used: 
 * Backend setup with **NodeJS** and **ExpressJS**
 * Data stored in **JSON** file (pseudo-database)
 * AngularJS **Material** as frontend framework
@@ -24,10 +25,13 @@ Add post page in dark mode showing the form to add a new post with a title and a
 ### For the project to work you need to have:
 * Linux Software or WSL, because Webpack 4 probably won't work for Windows (not tested on Mac).
 * NodeJS LTS version installed in your pc. 
-* To set up the Server-side project open the /server folder in any terminal and `npm install`
-* To set up the Client-side project open the /client folder in any terminal and `npm install`
-
 
 ## Execution
-### To run the Server-side project open the /server folder in any terminal and `npm start`
-### To run the Client-side project open the /client folder in any terminal and `npm start`
+### To set up and run the Server-side project open the `/server` folder in any terminal and type
+```
+npm install && npm start
+```
+### To set up and run the Client-side project open the `/client` folder in any terminal and type
+```
+npm install && npm start
+```
