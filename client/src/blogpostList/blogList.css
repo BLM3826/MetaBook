@@ -7,37 +7,37 @@
 }
 
 /* width */
-.blogListDiv::-webkit-scrollbar {
+.blogListDiv::-webkit-scrollbar, .blogListDiv::-moz-scrollbar {
   width: 10px;
   
 }
 
 /* Track */
-.blogListDiv::-webkit-scrollbar-track {
+.blogListDiv::-webkit-scrollbar-track, .blogListDiv::-moz-scrollbar-track {
   background: #1976d2;  
   border-radius: 5px;
   margin-top: 10px;
 }
-.blogListDiv-alt::-webkit-scrollbar-track {
+.blogListDiv-alt::-webkit-scrollbar-track, .blogListDiv-alt::-moz-scrollbar-track {
   background: orange;  
   border-radius: 5px;
 }
 
 /* Handle */
-.blogListDiv::-webkit-scrollbar-thumb {
+.blogListDiv::-webkit-scrollbar-thumb, .blogListDiv::-moz-scrollbar-thumb {
   background: orange;
   border-radius: 5px;
 }
-.blogListDiv-alt::-webkit-scrollbar-thumb {
+.blogListDiv-alt::-webkit-scrollbar-thumb, .blogListDiv-alt::-moz-scrollbar-thumb {
   background: #1976d2;
   border-radius: 5px;
 }
 
 /* Handle on hover */
-.blogListDiv::-webkit-scrollbar-thumb:hover {
+.blogListDiv::-webkit-scrollbar-thumb:hover, .blogListDiv::-moz-scrollbar-thumb:hover {
   background: #ff6d00;
 }
-.blogListDiv-alt::-webkit-scrollbar-thumb:hover {
+.blogListDiv-alt::-webkit-scrollbar-thumb:hover, .blogListDiv-alt::-moz-scrollbar-thumb:hover {
   background: #2962ff;
 }
 

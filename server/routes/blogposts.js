@@ -39,7 +39,7 @@ router.post('/', (req, res) => {
     content: req.body.content,
   };
   posts.push(newPost);
-  fs.writeFileSync(filepath, JSON.stringify(posts));
+  fs.writeFileSync(filepath, JSON.stringify(posts, null, 2));
   console.log(newPost);
   res.json(newPost);
 });
@@ -50,7 +50,7 @@ router.put('/:id', (req, res) => {
   blogpost.name = req.body.name;
   blogpost.title = req.body.title;
   blogpost.content = req.body.content;
-  fs.writeFileSync(filepath, JSON.stringify(posts));
+  fs.writeFileSync(filepath, JSON.stringify(posts, null, 2));
   console.log(blogpost);
   res.json(blogpost);
 });
@@ -60,7 +60,7 @@ router.delete('/:id', (req, res) => {
   const blogpost = posts.find((post) => post.id === parseInt(req.params.id, 10));
   console.log(blogpost);
   posts.splice(posts.indexOf(blogpost), 1);
-  fs.writeFileSync(filepath, JSON.stringify(posts));
+  fs.writeFileSync(filepath, JSON.stringify(posts, null, 2));
   console.log('DONE');
   res.json(blogpost);
 });
