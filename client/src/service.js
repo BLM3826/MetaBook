@@ -134,9 +134,9 @@ export default class Service {
   }
 
   // header functionality
-  logout() {
+  logout(onUserChange) {
     this.$resource('/api/logout').save().$promise.then(() => {
-      this.onUserChange({ user: null });
+      onUserChange({ user: null });
       this.$cookies.remove('user');
       this.displayToastMessage('Logged out successfully');
       this.$location.path('/');

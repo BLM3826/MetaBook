@@ -50,7 +50,7 @@ export class headerController {
   }
 
   logout() {
-    this.appService.logout();
+    this.appService.logout(this.onUserChange);
   }
 }
 
